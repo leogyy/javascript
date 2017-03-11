@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>js实现tip</title>
+	<style>
+		.container{position:relative;width:600px;height:400px;border:1px solid red;}
+    .tip-btn{position:absolute;right:10px;top:10px;display:block;width:40px;height:40px;border-radius:50%;background-color: #00eaff;text-align: center;line-height:40px;}
+		.tip-con{
+			display: none;
+			border-radius:6px;
+			position:absolute;
+			right:10px; top:60px;
+			width:200px;
+			height:100px;
+			background-color: #000;color:#fff;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<span class="tip-btn" id="tipBtn">?</span>
+		<div class="tip-con" id="tipCon">
+				<p>选择轻薄，还是选择性能？如果只强调性能，就没有容纳了一块 13.3"屏幕和全尺寸键盘，</p>
+		</div>
+	</div>
+
+
+<script>
+
+ // 1. onclick onmouseover  都兼容
+ //       onclick = null;
+ // 2. addEventListener    标准浏览器，低版本ie不支持
+ //     removeEventListener 解绑事件
+
+	window.onload = function(){
+		var tipBtn = document.getElementById('tipBtn');
+		var tipCon = document.getElementById('tipCon');
+    var btn = true; // 开关变量 全局变量
+
+    tipBtn.onclick = function(){
+
+			console.log(tipCon.style);
+			if(btn){
+				tipCon.style.display = 'block';
+				btn = false;
+			}else{
+				tipCon.style.display = 'none';
+				btn = true;
+			}
+
+
+		};
+
+		// tipBtn.addEventListener('click', clickFn);
+		//
+		// function clickFn(){
+		// 		alert('click....');
+		//解绑函数
+		// 		tipBtn.removeEventListener('click', clickFn);
+		// }
+
+	}
+</script>
+</body>
+</html>
