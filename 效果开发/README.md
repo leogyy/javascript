@@ -67,10 +67,10 @@ JS效果开发
           '12345abc' --> NaN <br>
           'abc'      --> NaN <br>
 
-    5. isNaN() 是否是NaN
+    5. isNaN() 是否是NaN <br>
         false  不是NaN 是number <br>
         true   是NaN   不是number <br>
-    6. 判断 字符串 转换后 是否 是小数
+    6. 判断 字符串 转换后 是否 是小数 <br>
         parseInt(inputValue) != Number(inputValue)<br>
         parseInt转换input的字符串和Number转换完成<br>
                 不一致，则是小数吧<br>
