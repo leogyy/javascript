@@ -37,18 +37,7 @@ JS效果开发
        * 通过class类名
        * 返回的是类似数组的HTML集合
 
-    6. 封装函数和注释规范
-      ```
-        /**
-        * 通过id获取html元素
-        * @param string 元素的id
-        * return object 获取到的元素对象
-        */
 
-         function G(sId){
-       	 	return document.getElementById(sId);
-       	}
-    ```    
 
 ####检测QQ号
  ![image](https://github.com/leogyy/javascript/raw/master/preview-img/qqcheck.png)
