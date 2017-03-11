@@ -38,7 +38,7 @@ JS效果开发
        * 返回的是类似数组的HTML集合
 
     6. 封装函数和注释规范
-        ```
+        ```javascript
         /**
         * 通过id获取html元素
         * @param string 元素的id
@@ -48,5 +48,4 @@ JS效果开发
          function G(sId){
        	 	return document.getElementById(sId);
        	}
-
         ```
