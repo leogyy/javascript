@@ -26,6 +26,7 @@ JS效果开发
 
 #### js实现实时修改页面内容
    ![image](https://github.com/leogyy/javascript/raw/master/preview-img/edittext.png)
+   <br>
     1. obj.innerHTML <br>
     2. obj.value <br>
     3. document.getElementById('box') <br>
