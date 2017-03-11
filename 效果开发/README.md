@@ -50,7 +50,8 @@ JS效果开发
        	}
     ```    
 
-###检测QQ号
+####检测QQ号
+ ![image](https://github.com/leogyy/javascript/raw/master/preview-img/qqcheck.png)
             1. js获取input的值
                 * obj.value
             2. input值的类型
