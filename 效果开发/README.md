@@ -23,3 +23,28 @@ JS效果开发
         * 方式：
            1. obj.style.display = 'block'
            2. obj.style['display'] = 'block'
+
+#### js实现实时修改页面内容
+    1. obj.innerHTML
+    2. obj.value
+    3. document.getElementById('box')
+       * 通过id
+       * 返回的是object
+    4. document.getElementsByTagName('p');
+       * 通过html标签名
+       * 返回的是类似数组的HTML集合
+    5. document.getElementByClassName('text');
+       * 通过class类名
+       * 返回的是类似数组的HTML集合
+
+    6. 封装函数和注释规范
+        ``` javascript
+        /**
+        * 通过id获取html元素
+        * @param string 元素的id
+        * return object 获取到的元素对象
+        */
+
+         function G(sId){
+       	 	return document.getElementById(sId);
+       	}
