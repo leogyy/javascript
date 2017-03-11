@@ -25,7 +25,7 @@ JS效果开发
            2. obj.style['display'] = 'block'
 
 #### js实现实时修改页面内容
-    ![image](https://github.com/leogyy/javascript/raw/master/preview-img/edittext.png)
+   ![image](https://github.com/leogyy/javascript/raw/master/preview-img/edittext.png)
     1. obj.innerHTML
     2. obj.value
     3. document.getElementById('box')
