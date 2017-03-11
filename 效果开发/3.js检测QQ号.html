@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>js检测QQ号</title>
+	<style>
+	   body{background:url(images/timg.jpg) no-repeat center 0;
+		 }
+     .container{position:relative;width:400px;margin:0 auto;
+		 margin-top:120px;}
+		 #qqNum{width:120px;height:26px;}
+     #check-btn{width:60px;height:30px;line-height:30px;
+			 text-align: center;color:#fff;
+			 background-color: #222222;border:none;}
+		#warn-text{display: none;position: absolute;left:74px;top:50px;
+		background-color: orange;color:#fff;padding:6px;border-radius:4px;}
+	</style>
+</head>
+<body>
+
+	 <div class="container">
+		 	<label>检测QQ号</label>
+			<input type="text" id="qqNum">
+			<span id="warn-text"></span>
+			<button id="check-btn">检测</button>
+	 </div>
+
+<script>
+/**
+* 通过id获取html元素
+* @param string 元素的id
+* return object 获取到的元素对象
+*/
+
+ function G(sId){
+	 return document.getElementById(sId);
+ }
+
+ /**
+ * 通过className获取html元素
+ * @param string 元素的className
+ * return array 获取到的元素的数组集合
+ */
+
+ function GClass(sClass){
+	 return document.getElementsByClassName(sClass);
+ }
+
+
+
+
+	window.onload = function(){
+  	var inputText = G('qqNum');//表单input
+		var checkBtn = G('check-btn');
+		var warn = G('warn-text'); //提示框html
+
+		/**
+		* 进行提示
+		* @param string 要提示的文本
+		*/
+
+		function warnTip(sText){
+		 warn.innerHTML = sText;
+		 warn.style.display = 'block';
+		}
+
+
+
+    //检测按钮点击事件
+		checkBtn.onclick = function(){
+			var inputValue = inputText.value;
+
+			//  判断输入值是否是空
+			if(inputValue.length != 0){ //不为空
+        // 123 或者 123.4 或者 NaN
+				var changeNum = Number(inputValue);
+
+				if(isNaN(changeNum) == true){
+					//是NaN，说明不是数字，提示
+					warnTip('请输入数字');
+				}else{
+					// 判断是否是小数
+					if(parseInt(inputValue) != Number(inputValue)){
+						warnTip('QQ号不能为小数');
+					}else{
+						//判断 表单中值的长度
+						if(inputValue.length >=5 && inputValue.length <= 10){
+							warnTip('恭喜你！得到一个百年一遇的QQ号');
+						}else{
+							warnTip('QQ号长度在5和10之间');
+						}
+
+					}
+
+
+				}
+
+
+			}else{ //空的时候,进行
+				warnTip('QQ号不能为空');
+			}
+
+		}
+
+
+	}
+</script>
+</body>
+</html>
