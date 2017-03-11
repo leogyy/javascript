@@ -1,7 +1,7 @@
 JS效果开发
 ====
 ####js实现tip效果
-
+   ![image](https:github.com/leogyy/javascript/raw/master/preview-img/tip.png)
 
    1. 事件方式
       1. 兼容大多数浏览器
