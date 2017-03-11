@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>js改变页面内容</title>
+	<link rel="stylesheet" href="css/iconfont.css">
+	<style>
+		.container{width:800px;height:300px;
+			overflow:hidden;
+
+		background-color: #888;border-radius:6px;margin:0 auto;
+	margin-top:80px;}
+
+  .show-section{color:#fff;position:relative;width:600px;margin:0 auto;height:40px;
+	border:1px solid red;
+   margin-top:100px;}
+
+	.edit-section{display:none;width:600px;margin:0 auto;height:40px;
+ 	border:1px solid red;
+    margin-top:100px;}
+
+	#edit-btn{position:absolute;right:100px;top:6px;background: none;border:none;color:orange;}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		  <!-- 展示区域 -->
+			<div class="show-section">
+				 <p id="text">三生三世 十里桃花</p>
+				 <button id="edit-btn">
+					 <i class="iconfont icon-bianji"></i>
+				 </button>
+			</div>
+      <!-- 编辑区域 -->
+			<div class="edit-section">
+				<input type="text" id="edit-input"/>
+				<button id="save-btn">
+	        保存
+				</button>
+				<button id="cancel-btn">
+	        取消
+				</button>
+			</div>
+
+	</div>
+
+<script>
+/**
+* 通过id获取html元素
+* @param string 元素的id
+* return object 获取到的元素对象
+*/
+
+ function G(sId){
+	 return document.getElementById(sId);
+ }
+
+ /**
+ * 通过className获取html元素
+ * @param string 元素的className
+ * return array 获取到的元素的数组集合
+ */
+
+ function GClass(sClass){
+	 return document.getElementsByClassName(sClass);
+ }
+
+	window.onload = function(){
+		var editBtn = G('edit-btn');
+		var saveBtn = G('save-btn');
+		var cancelBtn = G('cancel-btn');
+		var showSection = GClass('show-section')[0];
+		var editSection = GClass('edit-section')[0];
+    var text = G('text');  // p标签
+		var editInput = G('edit-input'); //input
+
+
+    //编辑按钮,展示区域隐藏,编辑区域显示
+		editBtn.addEventListener('click', function(){
+			showSection.style.display = 'none';
+			// 编辑区域 input 设置 文本
+			editInput.value = text.innerHTML;
+			editSection.style.display = 'block';
+
+		});
+
+    //保存
+		saveBtn.addEventListener('click', function(){
+			//先取表单的值
+			var editInputValue = editInput.value;
+			// 赋值给 展示界面的 p标签的文本
+			text.innerHTML = editInputValue;
+			editSection.style.display = 'none';
+			showSection.style.display = 'block';
+
+		});
+
+    //取消
+		cancelBtn.addEventListener('click', function(){
+			editSection.style.display = 'none';
+			showSection.style.display = 'block';
+		});
+
+
+
+	}
+</script>
+</body>
+</html>
