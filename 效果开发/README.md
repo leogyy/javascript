@@ -30,14 +30,14 @@ JS效果开发
    1. obj.innerHTML
    2. obj.value
    3. document.getElementById('box')
-   * 通过id  
-   * 返回的是object
+    * 通过id  
+    * 返回的是object
    4. document.getElementsByTagName('p');
-   * 通过html标签名  
-   * 返回的是类似数组的HTML集合
+    * 通过html标签名  
+    * 返回的是类似数组的HTML集合
    5. document.getElementByClassName('text');
-   * 通过class类名  
-   * 返回的是类似数组的HTML集合
+    * 通过class类名  
+    * 返回的是类似数组的HTML集合
 
 
 
@@ -45,23 +45,22 @@ JS效果开发
   ![image](https://github.com/leogyy/javascript/raw/master/preview-img/qqcheck.png)
 
   1. js获取input的值
-  * obj.value
+    * obj.value
   2. input值的类型
-  * string 字符串
-  * string.length 字符串的长度
+    * string 字符串
+    * string.length 字符串的长度
   3. 检测变量类型
-  * typeof()
-  * 返回值：string number object function boolean
+    * typeof()
+    * 返回值：string number object function boolean
   4. 字符串转数字
-  * parseInt 转整数，遇到第一个不是数字的字符停止
-    1. '12345'   --> 12345
-    2. '12345.6' --> 12345
-    3. '12345abc'--> 12345
-    4. 'abc123'  --> NaN   简单理解：not an number
-    5. '123abc456'--> 123
-
-  * parseFloat 转小数
-    1. '12345.6' --> 12345.6
+    * parseInt 转整数，遇到第一个不是数字的字符停止
+      1. '12345'   --> 12345
+      2. '12345.6' --> 12345
+      3. '12345abc'--> 12345
+      4. 'abc123'  --> NaN   简单理解：not an number
+      5. '123abc456'--> 123
+    * parseFloat 转小数
+      1. '12345.6' --> 12345.6
 
   * Number()
     1. '12345'    --> 12345
