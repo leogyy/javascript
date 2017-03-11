@@ -26,17 +26,17 @@ JS效果开发
 
 #### js实现实时修改页面内容
    ![image](https://github.com/leogyy/javascript/raw/master/preview-img/edittext.png)
-    1. obj.innerHTML
-    2. obj.value
-    3. document.getElementById('box')
-       * 通过id
-       * 返回的是object
-    4. document.getElementsByTagName('p');
-       * 通过html标签名
-       * 返回的是类似数组的HTML集合
-    5. document.getElementByClassName('text');
-       * 通过class类名
-       * 返回的是类似数组的HTML集合
+    1. obj.innerHTML <br>
+    2. obj.value <br>
+    3. document.getElementById('box') <br>
+       * 通过id  <br>
+       * 返回的是object <br>
+    4. document.getElementsByTagName('p'); <br>
+       * 通过html标签名  <br>
+       * 返回的是类似数组的HTML集合 <br>
+    5. document.getElementByClassName('text'); <br>
+       * 通过class类名  <br>
+       * 返回的是类似数组的HTML集合 <br>
 
 
 
