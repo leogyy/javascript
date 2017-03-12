@@ -25,7 +25,10 @@ Date日期
 7. innerHTML
   * 取值
   * 赋值
-    1. obj.innerHTML = '<h1>标题</h1>'
+    1. obj.innerHTML = '哈哈哈哈'
+    2. 可以使用html标签
 8. String.split()
   * split(',') 把字符串按规定 分割成数组
-  
+9. 数字转字符串
+  * num + '';
+  * num.toString();  
