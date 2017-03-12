@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>JSON对象</title>
+	<style>
+     #actor{font-size:30px;}
+	</style>
+</head>
+<body>
+  <img width="214" height="300" id="tvImg" src="" />
+	<p id="actor"></p>
+
+
+<script>
+	window.onload = function(){
+   // 电视剧JSON对象
+		var tv = {
+	    name : "三生三世",
+	    actor : ["杨幂","赵又廷","迪丽热巴","高伟光"],
+	    imgUrl : "images/ssss.jpg",
+	    score : 9,
+	    year : "2017年",
+	    country : "中国大陆",
+	    type : "剧情 / 爱情"
+	  }
+    //遍历JSON对象，使用for in
+	  for(attr in tv){
+
+			console.log("属性名为 " + attr);
+			console.log("属性值 " + tv[attr]);
+
+		}
+
+		//给json对象添加属性director
+    tv.director = '林玉芬';
+		console.log(tv.director)
+		console.log(tv['country'])
+
+    //获取图片img元素
+    var tvImg = document.getElementById('tvImg');
+		// 设置图片src
+		tvImg.src = tv.imgUrl;
+
+		// console.log(tv.actor);
+    var actorArr = tv.actor;
+
+		// 1.数组生成字符串
+		// var actorStr = '';
+		// for(var i = 0; i < actorArr.length; i++){
+		// 	actorStr = actorStr + actorArr[i] + ' ';
+		// 	console.log(i)
+		// 	console.log(actorStr);
+		// }
+
+		// 第一次循环   '' + '杨幂'  = '杨幂'
+		// 第二次循环   '杨幂' + '赵又廷' = '杨幂赵又廷'
+
+
+
+    // 2. join,数组转字符串，这里用 /连接
+		var actorStr = actorArr.join('/');
+
+    var actorEl = document.getElementById('actor');
+		actorEl.innerHTML = actorStr;
+		console.log(actorStr)
+
+
+
+
+
+
+
+
+
+	}
+
+
+</script>
+</body>
+</html>
