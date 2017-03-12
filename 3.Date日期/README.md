@@ -31,4 +31,6 @@ Date日期
   * split(',') 把字符串按规定 分割成数组
 9. 数字转字符串
   * num + '';
-  * num.toString();  
+  * num.toString();
+10. 数字时钟
+     ![image](https://github.com/leogyy/javascript/raw/master/preview-img/numclock.png)
