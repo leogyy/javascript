@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>date</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<h1 id="now"></h1>
+
+<script>
+	window.onload = function(){
+		var nowEl = document.getElementById('now');
+    var dateStr = '';
+
+
+	  var timeId = null;
+	  timeId = setInterval(function(){
+			//当前时间
+			var now = new Date();
+			var year = now.getFullYear();
+		  var month = now.getMonth(); //月
+			var dayNum = now.getDate();// 几号
+			var dateNum = now.getDay(); //星期几
+			var hour = now.getHours();
+			var minu = now.getMinutes();
+			var sec = now.getSeconds();
+
+	    var dayStr = getStrDay(dateNum)
+		 dateStr = year + '年' + (month+1) + '月'
+		+ dayNum + '日 ' + dayStr + ' '
+		+ toTwoStr(hour) + ':' + toTwoStr(minu) + ':' + toTwoStr(sec);
+
+			nowEl.innerHTML = dateStr;
+	  }, 1000);
+
+
+	 /**
+	 * 小于10的数，前面加0   1 --> '01'
+	 * @param number  1
+	 * return string '01'
+	 */
+
+	 function toTwoStr(nNum){
+		 var str = '';
+		 if(nNum >=0 && nNum < 10){ // 0 - 9 --> '01'
+			 str = '0' + nNum;
+		 }else{  //10 - 59 --> 10 - 59
+			 str = nNum + '';
+		 }
+		 return str;
+
+	 }
+
+   /**
+	 * 根据数字生成星期几
+	 * @param number
+	 * return string '星期六'
+	 */
+
+	 function getStrDay(nDay){
+		  var str = '';
+		  switch(nDay){
+				case 0:
+					str = '星期日';
+				break;
+
+				case 1:
+					str = '星期一';
+				break;
+
+				case 2:
+					str = '星期二';
+				break;
+
+				case 3:
+					str = '星期三';
+				break;
+
+				case 4:
+					str = '星期四';
+				break;
+
+				case 5:
+					str = '星期五';
+				break;
+
+				case 6:
+					str = '星期六';
+				break;
+
+			}
+			return str;
+	 }
+
+
+	}
+
+</script>
+</body>
+</html>

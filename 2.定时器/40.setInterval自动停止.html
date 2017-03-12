@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>定时器</title>
+	<style>
+		#num{font-family:arial;font-size:80px;}
+		#btn{border:none;border-radius:6px;width:100px;height:40px;text-align: center;font-size:24px;color:#fff;background-color: orange;font-family:"微软雅黑"}
+		#start-btn{border:none;border-radius:6px;width:100px;height:40px;text-align: center;font-size:24px;color:#fff;background-color: orange;font-family:"微软雅黑"}
+
+	</style>
+</head>
+<body>
+
+<h1 id="num">0</h1>
+
+<script>
+	window.onload = function(){
+		var num = 0;
+		var numEl = document.getElementById('num');
+
+		var timeId = null;
+
+		// 开启定时器
+		timeId = setInterval(function(){
+			num++;
+			if(num >= 10){//如果大于等于10，清除定时器
+				clearInterval(timeId);
+			}
+			numEl.innerHTML = num;
+		}, 1000);
+
+
+
+
+
+
+
+  }
+</script>
+</body>
+</html>

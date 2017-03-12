@@ -1,0 +1,24 @@
+Date日期
+====
+1. new Date()
+  * 当前时间
+2. 转换格式
+  * 2017年3月12日 星期日 13:45
+3. 时间戳
+  * 1970年1月1日0时0分0秒到现在的毫秒数
+  * getTime() 例如：1489298066895
+4. 常用方法
+  * getFullYear() 获取年 2017
+  * getMonth()  获取月份 从0开始 0 是1月
+  * getDate()   日      12
+  * getDay()      星期  周日是0  
+  * getHours()    小时
+  * getMinutes()  分钟
+  * getSeconds()  秒
+  * getMilliSeconds() 毫秒
+5. 函数： getStrDay() 实现0-6 转换成 星期几 形式
+  * if else
+  * switch case
+6. 函数：toTwoStr 小于10的数前面加0
+  * 0-9 --> '01'
+  * 10以上 --> '12'

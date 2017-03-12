@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>定时器</title>
+	<style>
+
+	</style>
+</head>
+<body>
+
+
+<script>
+	window.onload = function(){
+  // 1. setTimeout 延迟定时器
+    //  语法 ： setTimeout(Fn, ms)
+	var timeId = setTimeout(function(){
+		 alert('今天天气不错！！！');
+	}, 3000);
+
+	//清除定时器
+  clearTimeout(timeId);
+
+	}
+
+
+</script>
+</body>
+</html>

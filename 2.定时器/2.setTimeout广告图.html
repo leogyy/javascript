@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>定时器</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	<img id="setImg" src="images/setimg.jpg" />
+	<img src="images/setimg2.png" />
+
+<script>
+	window.onload = function(){
+		var setImgEl = document.getElementById('setImg');
+
+		//开启定时器,3s后隐藏图片
+		setTimeout(function(){
+       setImgEl.style.display = 'none';
+		}, 3000)
+
+  }
+</script>
+</body>
+</html>

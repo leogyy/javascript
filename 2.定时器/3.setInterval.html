@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>定时器</title>
+	<style>
+		#num{font-family:arial;font-size:80px;}
+		#btn{border:none;border-radius:6px;width:100px;height:40px;text-align: center;font-size:24px;color:#fff;background-color: orange;font-family:"微软雅黑"}
+		#start-btn{border:none;border-radius:6px;width:100px;height:40px;text-align: center;font-size:24px;color:#fff;background-color: orange;font-family:"微软雅黑"}
+
+	</style>
+</head>
+<body>
+
+<h1 id="num">0</h1>
+<button id="btn">停止</button>
+<button id="start-btn">开始</button>
+<script>
+	window.onload = function(){
+		var num = 0;
+		var numEl = document.getElementById('num');
+		var btn = document.getElementById('btn');
+		var startBtn = document.getElementById('start-btn');
+    var timeId = null; //全局变量
+		//开启间隔型定时器
+		timeId = setInterval(function(){
+				num++;
+				numEl.innerHTML = num;
+		}, 1000);
+
+    //停止按钮点击的时候，清除定时器
+		btn.onclick = function(){
+			clearInterval(timeId);
+		}
+
+	 //开始按钮点击的时候，开启
+	 startBtn.onclick = function(){
+		 timeId = setInterval(function(){
+ 				num++;
+ 				numEl.innerHTML = num;
+ 		}, 1000);
+	 }
+
+
+
+
+
+
+
+
+
+  }
+</script>
+</body>
+</html>
