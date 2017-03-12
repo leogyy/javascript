@@ -33,6 +33,7 @@ Date日期
   * num + '';
   * num.toString();
 10. 数字时钟
-  ![image](https://github.com/leogyy/javascript/raw/master/preview-img/numclock.png)
+    ![image](https://github.com/leogyy/javascript/raw/master/preview-img/numclock.png)
+
 11. 圆形时钟
-  ![image](https://github.com/leogyy/javascript/raw/master/preview-img/circleclock.png)
+    ![image](https://github.com/leogyy/javascript/raw/master/preview-img/circleclock.png)
