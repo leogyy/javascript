@@ -8,10 +8,10 @@ Date日期
   * 1970年1月1日0时0分0秒到现在的毫秒数
   * getTime() 例如：1489298066895
 4. 常用方法
-  * getFullYear() 获取年 2017
-  * getMonth()  获取月份 从0开始 0 是1月
-  * getDate()   日      12
-  * getDay()      星期  周日是0  
+  * getFullYear() 年 2017
+  * getMonth()    月份 从0开始 0 是1月
+  * getDate()     日      12
+  * getDay()      星期(0到6)  周日是0  
   * getHours()    小时
   * getMinutes()  分钟
   * getSeconds()  秒
@@ -22,3 +22,10 @@ Date日期
 6. 函数：toTwoStr 小于10的数前面加0
   * 0-9 --> '01'
   * 10以上 --> '12'
+7. innerHTML
+  * 取值
+  * 赋值
+    1. obj.innerHTML = '<h1>标题</h1>'
+8. String.split()
+  * split(',') 把字符串按规定 分割成数组
+  
