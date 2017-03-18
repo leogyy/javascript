@@ -33,4 +33,5 @@
        * onmouseover鼠标悬停
        * onmouseout 鼠标移开
        * offsetLeft
-  * 透明度fade函数       
+  * 无缝滚动     
+  * 透明度fade函数
