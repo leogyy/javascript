@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+      body{background-color: #e8e8e8;}
+      p{margin:0;padding:0;}
+      .orange-text{color:#ff6700;}
+      .marginT55{margin-top:55px;}
+      .shop-list em, .shop-list strong{font-weight: normal;font-style: normal;}
+      .container{width:900px;padding:0 30px;background-color: #fff;margin:0 auto;}
+      .shop-item,.shop-title,.shop-footer{height:110px;overflow: hidden;}
+      .shop-footer{border-top:1px solid #ccc;}
+      .shop-item{border-top:1px solid #ccc;}
+      .shop-fl{float:left;}
+      .shop-name{width:320px;}
+      .shop-item .shop-name{margin-top:25px;}
+      .shop-name img, .shop-name span{vertical-align: middle;}
+      .shop-p1{width:210px;}
+      .shop-change-section{position:relative;width:210px;height:24px;}
+      .shop-a-p{width:110px;}
+      .change-btn{font-size:18px;border:1px solid #ccc;height:24px;width:24px;cursor: pointer;background:#fff;}
+      .change-num{position:absolute;left:34px;top:0;border:1px solid #ccc;width:40px;height:22px;text-align: center;}
+      .reduce-btn{position:absolute;left:8px;top:0;}
+      .add-btn{position:absolute;left:79px;top:0;}
+
+      .shop-main-price{font-size:36px;}
+      .shop-a-p2{margin-left:400px;margin-top:40px;}
+
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="shop-list" id="shop-list">
+
+      <!-- 购物车标题 -->
+      <div class="shop-title">
+        <div class="shop-fl marginT55 shop-name"><p>商品名</p></div>
+        <div class="shop-fl  marginT55 shop-p1">价格</div>
+        <div class="shop-fl  marginT55 shop-change-section">
+          数量
+        </div>
+        <div class="shop-fl  marginT55 shop-a-p">
+            小计
+        </div>
+      </div>
+
+      <!-- 购物车单个商品详细信息 -->
+      <div class="shop-item">
+        <div class="shop-fl shop-name">
+          <img src="images/prod1.jpg" alt="">
+          <span>米家 LED 智能台灯 白色</span>
+        </div>
+        <div class="shop-fl marginT55 shop-p1"><em class="shop-price">169</em>元</div>
+        <div class="shop-fl marginT55 shop-change-section">
+            <button class="change-btn reduce-btn">-</button>
+            <span class="change-num">1</span>
+            <button class="change-btn add-btn">+</button>
+        </div>
+        <div class="shop-fl marginT55 shop-a-p orange-text">
+               <strong class="shop-all-price">169</strong>元
+        </div>
+      </div>
+
+      <!-- 购物车单个商品详细信息 -->
+      <div class="shop-item">
+        <div class="shop-fl marginT55 shop-name">
+          <img src="images/prod2.jpg" alt="">
+          <span>米家扫地机器人</span>
+        </div>
+        <div class="shop-fl marginT55 shop-p1"><em class="shop-price">1699</em>元</div>
+        <div class="shop-fl marginT55 shop-change-section">
+            <button class="change-btn reduce-btn">-</button>
+            <span class="change-num">1</span>
+            <button class="change-btn add-btn">+</button>
+        </div>
+        <div class="shop-fl marginT55 shop-a-p orange-text">
+               <strong class="shop-all-price">1699</strong>元
+        </div>
+      </div>
+
+      <!-- 购物车单个商品详细信息 -->
+      <div class="shop-item">
+        <div class="shop-fl marginT55 shop-name">
+          <img src="images/prod3.jpg" alt="">
+          <span>小米笔记本Air 12.5英寸 银色</span>
+        </div>
+        <div class="shop-fl marginT55 shop-p1"><em class="shop-price">3499</em>元</div>
+        <div class="shop-fl marginT55 shop-change-section">
+            <button class="change-btn reduce-btn">-</button>
+            <span class="change-num">1</span>
+            <button class="change-btn add-btn">+</button>
+        </div>
+        <div class="shop-fl marginT55 shop-a-p orange-text">
+               <strong class="shop-all-price">3499</strong>元
+        </div>
+      </div>
+
+      <!-- 购物车标题 -->
+      <div class="shop-footer">
+        <div class="shop-fl marginT55 shop-p1">
+          共 <em class="shop-all-num orange-text" id="shop-all-num">3</em> 件商品
+        </div>
+
+        <div class="shop-fl  shop-a-p2 orange-text">
+            总计 <strong class="shop-main-price" id="finalPrice">0</strong>元
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+<script>
+//
+// Demo 知识点
+// 1 document.getElementsByClassName   低版本ie不支持
+// 2 实现自己的 getClass函数
+// 3 函数 return 的使用
+// 4 函数的使用
+// 5 for循环的使用
+function getClass(tagName, className) //获得标签名为tagName,类名className的元素
+{
+    if(document.getElementsByClassName) //支持这个函数
+    {        return document.getElementsByClassName(className);
+    }
+    else
+    {
+        var tags=document.getElementsByTagName(tagName);//获取标签
+        var tagArr=[];//用于返回类名为className的元素
+        for(var i=0;i < tags.length; i++)
+        {
+            if(tags[i].class == className)
+            {
+                tagArr[tagArr.length] = tags[i];//保存满足条件的元素
+            }
+        }
+        return tagArr;
+    }
+
+}
+
+  window.onload = function(){
+      var shopList = document.getElementById('shop-list');
+      var shopItem = shopList.getElementsByClassName('shop-item');//获取所有商品item
+      var finalPriceBox = document.getElementById('finalPrice'); //最终价格DOM
+      var finalShopNum = document.getElementById('shop-all-num'); //最终商品数量DOM
+      // //添加按钮DOM
+      // var addBtn = shopItem[0].getElementsByClassName('add-btn')[0];
+      // //减少按钮DOM
+      // var reduceBtn = shopItem[0].getElementsByClassName('reduce-btn')[0];
+      // //商品数量DOM
+      // var shopNumBox = shopItem[0].getElementsByClassName('change-num')[0];
+      //  //商品单价
+      // var shopPrice = Number(shopItem[0].getElementsByClassName('shop-price')[0].innerHTML);
+      // //单种商品总价DOM
+      // var shopAllPriceBox = shopItem[0].getElementsByClassName('shop-all-price')[0];
+      // // 商品数量
+      // var shopNum = Number(shopNumBox.innerHTML);
+
+
+      //返回值 为最终总价
+      function countAllPrice(){
+        var allPriceBox = shopList.getElementsByClassName('shop-all-price');
+        var tempPrice = 0;
+        for(var i = 0; i < allPriceBox.length; i++){
+          tempPrice += Number(allPriceBox[i].innerHTML);
+        }
+        return tempPrice;
+      }
+
+      //返回值 为最终商品数量
+      function countAllNum(){
+        var allNumBox = shopList.getElementsByClassName('change-num');
+        var tempNum = 0;
+        for(var i = 0; i < allNumBox.length; i++){
+          tempNum += Number(allNumBox[i].innerHTML);
+        }
+        return tempNum;
+      }
+
+     // 计算单个 商品的价格，包括增加和减少
+      function count(i){
+        //增加按钮
+        var addBtn = shopItem[i].getElementsByClassName('add-btn')[0];
+        //减少按钮DOM
+        var reduceBtn = shopItem[i].getElementsByClassName('reduce-btn')[0];
+        //商品数量DOM
+        var shopNumBox = shopItem[i].getElementsByClassName('change-num')[0];
+         //商品单价
+        var shopPrice = Number(shopItem[i].getElementsByClassName('shop-price')[0].innerHTML);
+        //单种商品总价DOM
+        var shopAllPriceBox = shopItem[i].getElementsByClassName('shop-all-price')[0];
+        // 商品数量
+        var shopNum = Number(shopNumBox.innerHTML);
+
+        var tempAllPrice = 0;
+
+        // 商品增加按钮
+        addBtn.onclick = function(){
+           shopNum ++ ;
+           tempAllPrice = shopPrice * shopNum;
+           shopAllPriceBox.innerHTML = tempAllPrice;
+           shopNumBox.innerHTML = shopNum;
+           finalPriceBox.innerHTML = countAllPrice();//设置 商品的总价
+           finalShopNum.innerHTML = countAllNum();// 设置商品数量
+        }
+
+        // 商品减少按钮
+        reduceBtn.onclick = function(){
+          if(shopNum <= 0){return;} //如果减少到0，中断以下操作
+          shopNum--;
+          tempAllPrice = shopPrice * shopNum;  //商品单价 * 商品数量
+          shopAllPriceBox.innerHTML = tempAllPrice; //设置商品小计
+          shopNumBox.innerHTML = shopNum;          //设置商品数量
+          finalPriceBox.innerHTML = countAllPrice();  //设置 商品的总价
+          finalShopNum.innerHTML = countAllNum(); // 设置商品数量
+        }
+
+
+      }
+
+     //根据商品列表长度，每个商品绑定点击事件和逻辑
+      for(var i = 0; i < shopItem.length; i++){
+        count(i);
+      }
+
+
+      // 初始化商品总价
+      finalPriceBox.innerHTML = countAllPrice();
+
+      // 初始化商品总数
+      finalShopNum.innerHTML = countAllNum();
+
+
+
+  }
+</script>
+</body>
+</html>
