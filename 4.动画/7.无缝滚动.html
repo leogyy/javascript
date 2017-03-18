@@ -59,15 +59,12 @@
 <script>
 window.onload = function(){
 	var scrollCon = document.getElementById('scroll-con');
-
   //复制元素内容
   var allLink = scrollCon.innerHTML + scrollCon.innerHTML;
 
  //设置滚动内容 为 10个 图片
 	scrollCon.innerHTML = allLink;
-
 	var timeId = null;
-
 	timeId = setInterval(function(){
   //  当滚动内容正好是 一半的时候
 	// 说明滚动 5个元素
@@ -79,7 +76,6 @@ window.onload = function(){
 		scrollCon.style.left = (
 			scrollCon.offsetLeft - 5) +　'px';
 	}, 30)
-
 
 }
 

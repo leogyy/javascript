@@ -33,5 +33,7 @@
        * onmouseover鼠标悬停
        * onmouseout 鼠标移开
        * offsetLeft
-  * 无缝滚动     
+  * 无缝滚动
+    1. 复制一份相同的内容放到滚动元素中
+    2. 当滚动到一半的是，立即设置滚动元素left为0
   * 透明度fade函数
