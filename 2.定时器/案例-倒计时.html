@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Date对象</title>
+    <style>
+      .container{width:800px;height:100px;margin:0 auto;border:4px solid #616366;
+        border-radius:14px;background-color: #1f2122;margin-top:120px;color:#fff;}
+      .container p{text-align: center;font-size:32px;}
+      .im-text{color:orange;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+   <p id="show"></p>
+
+</div>
+
+<script>
+// http://javascript.ruanyifeng.com/stdlib/date.html
+// var now = new Date();
+// now;                        // Wed Jun 24 2015 19:49:22 GMT+0800 (CST)
+// now.getFullYear();         // 2017, 年份
+// now.getMonth();           // 5, 月份，注意月份范围是0~11，5表示六月
+// now.getDate();            // 24, 表示24号
+// now.getDay();             // 3, 表示星期三
+// now.getHours();          // 19, 24小时制
+// now.getMinutes();        // 49, 分钟
+// now.getSeconds();        // 22, 秒
+// now.getMilliseconds();   // 875, 毫秒数
+// now.getTime();           // 1435146562875, 以number形式表示的时间戳
+
+//时间戳 ：格林威治时间1970年01月01日00时00分00秒(北京时间1970年01月01日08时00分00秒)起至现在的总秒数。
+
+  window.onload = function(){
+    var showObj = document.getElementById('show');
+
+    //设定的时间
+    var setDateStr = '2017-03-20 17:30:00';
+    var fur = new Date(setDateStr);  //某一天的时间
+    var furTime = fur.getTime();    // 某一天的时间戳
+    console.log('设定的时间：' + fur);
+    console.log('设定的时间戳' + furTime);
+
+    //时间转换
+    function timeStampToJson(stampNum){
+       var seconds = stampNum / 1000;
+       return {
+         day : Math.floor(seconds / 3600 / 24),        //天数
+         hour : Math.floor(seconds / 3600 % 24),  // 小时
+         minu : Math.floor(seconds / 60 % 60),    //分钟
+         sec : Math.floor(seconds % 60)           //秒数
+       }
+    }
+
+    function render(){
+      // 现在的时间
+      var now = new Date();
+      var nowTime = now.getTime();  //此时此刻的时间戳
+      console.log('现在的时间：' + now);
+      console.log('现在的时间戳 ' + nowTime);
+
+      var timeNum = furTime - nowTime;
+      console.log(timeNum);
+      if(timeNum <= 0){  // 时间差小于0的时候，停止定时器
+        clearInterval(t);
+        return;
+      }
+
+      var timeJson =  timeStampToJson(timeNum);
+      console.log(timeJson)
+       showObj.innerHTML = '距离'+ setDateStr + ' 剩余<span class="im-text">' +
+       timeJson.day + '</span>天<span class="im-text"> ' + timeJson.hour + '</span>小时<span class="im-text">' + timeJson.minu
+       + '</span>分<span class="im-text">' + timeJson.sec + '</span>秒';
+    }
+
+    // 调用
+    var t = setInterval(render, 1000);
+
+
+  }
+</script>
+</body>
+</html>

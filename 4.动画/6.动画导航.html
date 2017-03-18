@@ -51,8 +51,10 @@ window.onload = function(){
 	for(var i = 0; i < linkEls.length; i++){
     // 鼠标悬停
 		linkEls[i].onmouseover = function(){
+			//获取鼠标悬停的元素的当前 位置
 			var left = this.offsetLeft;
 			console.log(left);
+			//执行动画，移动到位置上
 			move(activeBox, left);
 		}
 

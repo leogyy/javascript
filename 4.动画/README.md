@@ -8,7 +8,9 @@
     2. className 添加类和删除类 和css3 的transition 配合
 2. JS动画
   * offset系列
-    1. offsetLeft  得到距离左侧的位置
+    1. offsetLeft
+       * 如果父辈元素中有定位的元素，那么就返回距离当前元素最近的定位元素边缘的距离。
+       * 如果父辈元素中没有定位元素，那么就返回相对于body左边缘距离。
     2. offsetTop
     3. offsetWidth
     4. offsetHeight
@@ -31,3 +33,4 @@
        * onmouseover鼠标悬停
        * onmouseout 鼠标移开
        * offsetLeft
+  * 透明度fade函数       

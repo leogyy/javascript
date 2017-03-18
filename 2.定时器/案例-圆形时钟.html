@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS Clock</title>
+    <style>
+      body{background-color: #e7e7e7;}
+      .clock{
+        margin:0 auto;
+        margin-top:200px;
+        width:300px;
+        height:300px;
+        background-color: #c58641;
+        border:10px solid #fff;
+        border-radius:50%;
+        position: relative;
+        box-shadow:0 0 10px rgba(0,0,0,0.3);
+      }
+     .clock-hand{
+       border-radius: 6px;
+       border-radius: 6px;
+      position:absolute;
+      left:50%;
+      margin-left:-3px;
+      width:6px;height:140px;
+      background-color: #fff;
+      transform-origin: center bottom;
+      box-shadow:0 0 10px rgba(0,0,0,0.3);
+     }
+     #seconds{top:10px;}
+     #minutes{width:10px;height:100px;top:50px;margin-left:-5px;}
+     #hour{width:14px;height:60px;top:90px;margin-left:-7px;}
+     .snag{
+       background-color: #fff;
+       position:absolute;left:50%;
+       margin-left: -10px;border-radius:50%;top:140px;
+       display: block;width:20px;height:20px;}
+    </style>
+</head>
+<body>
+  <div class="clock">
+    <div class="snag"></div>
+    <div class="clock-hand" id="hour"></div>
+    <div class="clock-hand" id="minutes"></div>
+    <div class="clock-hand" id="seconds"></div>
+
+  </div>
+
+<script>
+
+//1. Date()
+//2. getSeconds() getMinutes() getHours()
+//3. json对象的使用
+//4. transform rotate， transition
+//5. setInterval, 每秒钟执行一次渲染函数
+//6. 分针 时针 秒针 角度计算
+
+  window.onload = function(){
+      var sec = document.getElementById('seconds');
+      var minu = document.getElementById('minutes');
+      var hour = document.getElementById('hour');
+
+      function init(){
+        var time = getTime();
+        var secInitDeg = getDeg(time.seconds);
+        var minuInitDeg = getDeg(time.minutes);
+        var hourInitDeg = getHourDeg(time.hour, time.minutes);
+        console.log('------------');
+        console.log("时针角度：" + hourInitDeg);
+        console.log("秒数：" + time.seconds);
+        console.log("小时数：" + time.hour);
+        console.log("分钟数：" + time.minutes);
+
+        setAnimate(sec, secInitDeg);
+        setAnimate(minu, minuInitDeg);
+        setAnimate(hour, hourInitDeg);
+        hour.style.transform = 'rotate(' + hourInitDeg + 'deg)';
+        minu.style.transform = 'rotate(' + minuInitDeg + 'deg)';
+        sec.style.transform = 'rotate(' + secInitDeg + 'deg)';
+      }
+
+      //动画设置，deg 在 354 到 0 的时候，不做操作会出现bug
+      //需要在此区间去除过渡动画
+      function setAnimate(obj, initDeg){
+        if(initDeg == 0){
+          obj.style.transition = 'none';
+        }
+        else{
+          obj.style.transition = 'all linear 0.1s'
+        }
+      }
+
+      //获取当前时间
+      //return {} 结构
+      function getTime(){
+        var now = new Date();
+        return {
+          seconds : now.getSeconds(),
+          minutes : now.getMinutes(),
+          hour : now.getHours()
+        }
+        // 测试数据
+        // return {
+        //   seconds : 0,
+        //   minutes : 0,
+        //   hour : 12
+        // }
+      }
+
+      //通过小时数 和 分钟数，获取 当前 时钟角度
+      function getHourDeg(hourNum, minutesNum){
+        if(hourNum >= 12){
+          hourNum = hourNum - 12;
+        }
+        // 分针走一次，时针走0.5度
+        hourDeg = hourNum * (360 / 12) + parseInt(minutesNum * 0.5) ;
+        return hourDeg;
+      }
+
+      // 获取时针和秒针角度
+      function getDeg(num){
+        return num * 6;
+      }
+
+      init();
+
+      // 设置一个间隔定时器，一秒执行一次
+      var timer = setInterval(function(){
+        init();
+      }, 1000)
+
+  }
+</script>
+</body>
+</html>
