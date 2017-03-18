@@ -5,13 +5,50 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 	<title>fade函数</title>
 	<style>
-
+	#box{
+		width:100px;
+		height:100px;
+		background-color: red;
+		border:1px solid orange;
+		font-size:100px;
+		opacity:1;
+	}
 	</style>
 </head>
 <body>
-
+<div id="box"></div>
+<button id="btn">按钮</button>
 <script>
 window.onload = function(){
+	var boxEl = document.getElementById('box');
+	var btnEl = document.getElementById('btn');
+  btnEl.onclick = function(){
+
+		fade(boxEl, 0.2);
+	}
+
+
+  //透明度函数
+	// fade(boxEl, 1)
+	function fade(obj, nNum){
+		clearInterval(obj.timeId);
+		var speed = 0;
+		//通过speed 正负控制方向
+		if(getStyle(obj, 'opacity') > nNum){
+			speed = -0.01;  //向左
+		}else{
+			speed = 0.01; //向右
+		}
+		obj.timeId = setInterval(function(){
+			var opacity = getStyle(obj, 'opacity');
+			obj.style.opacity = Number(opacity) + speed;
+      var result = nNum - getStyle(obj, 'opacity');
+			if(Math.abs(result) <= 0.01){
+					clearInterval(obj.timeId);
+					obj.style.opacity  = nNum;
+			}
+		}, 30);
+	}
 
   /**
 	* 根据样式的属性名，获取值
