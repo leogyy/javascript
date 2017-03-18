@@ -7,18 +7,29 @@
 	<style>
 	  a{text-decoration: none;}
 		.scroll-wraper{
+			position:relative;
 			width:1110px;
 			height:220px;
 			border:1px solid #ccc;
 			margin:0 auto;
 			margin-top:100px;
+			overflow:hidden;
 		}
-		#scroll-con a{float:left;
+		#scroll-con{
+			position:absolute;
+			left:0;top:0;
+			width:2220px;
+			height:220px;
+
+		}
+		#scroll-con a{
+			float:left;
 			display: block;
 			width:220px;
 			height:220px;
 		}
-		#scrll-con a{display: block;
+		#scrll-con a{
+			display: block;
 			width:220px;
 			height:220px;
 		}
@@ -47,6 +58,25 @@
 
 <script>
 window.onload = function(){
+	var scrollCon = document.getElementById('scroll-con');
+
+  var allLink = scrollCon.innerHTML + scrollCon.innerHTML;
+
+
+	scrollCon.innerHTML = allLink;
+
+	var timeId = null;
+
+	timeId = setInterval(function(){
+
+		console.log(scrollCon.offsetLeft );
+		if(scrollCon.offsetLeft  <= -1100){
+			console.log(1111111);
+			scrollCon.style.left = '0px';
+		}
+		scrollCon.style.left = (scrollCon.offsetLeft - 5) +　'px';
+	}, 30)
+
 
 }
 
