@@ -43,7 +43,27 @@
 
 <script>
 window.onload = function(){
+  var activeBox = document.getElementById('activeBox');
+	var linkEls = document.getElementById('nav-con').getElementsByTagName('a');
 
+	//给每一个a元素 绑定事件
+
+	for(var i = 0; i < linkEls.length; i++){
+    // 鼠标悬停
+		linkEls[i].onmouseover = function(){
+			var left = this.offsetLeft;
+			console.log(left);
+			move(activeBox, left);
+		}
+
+		// 鼠标移开
+		// linkEls[i].onmouseout = function(){
+		// 	var left = this.offsetLeft;
+		// 	console.log(left);
+		// }
+
+
+	}
 
 	function move(obj, nNum){
 		clearInterval(obj.timeId);

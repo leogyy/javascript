@@ -26,4 +26,8 @@
     4. 到一定位置，清除定时器
   * 匀速运动move函数
     1. move(obj, nNum);
-            
+  * move函数应用
+    1. 动画导航
+       * onmouseover鼠标悬停
+       * onmouseout 鼠标移开
+       * offsetLeft
