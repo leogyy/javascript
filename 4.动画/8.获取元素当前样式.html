@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>获取元素当前样式</title>
+	<style>
+#box{
+	width:100px;
+	height:100px;
+	background-color: red;
+	border:1px solid orange;
+	font-size:100px;
+	opacity:0.5;
+}
+	</style>
+</head>
+<body>
+	<div id="box"></box>
+<script>
+window.onload = function(){
+	var boxEl = document.getElementById('box');
+
+	// var num	= getComputedStyle(boxEl, false)['height'];
+	// console.log(num)
+  // 如果boxEl 有currentStyle属性，则会返回true
+	// 用来判断浏览器是否支持某个属性。
+	// if(boxEl.currentStyle){
+	// 	alert('您的浏览器支持currentStyle');
+	// }else{
+	// 	alert('您的浏览器不支持支持currentStyle');
+	// }
+
+	var num = getStyle(boxEl, 'width');
+  console.log(num);
+  //获取元素样式，兼容各个浏览器
+	function getStyle(obj, attr){
+		if(obj.currentStyle){ //ie8
+			return obj.currentStyle[attr];
+		}else{ //chrome等标准
+			return getComputedStyle(obj, false)[attr]
+		}
+	}
+
+
+
+}
+</script>
+</body>
+</html>

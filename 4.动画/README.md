@@ -36,4 +36,23 @@
   * 无缝滚动
     1. 复制一份相同的内容放到滚动元素中
     2. 当滚动到一半的是，立即设置滚动元素left为0
+  * 获取元素的当前样式
+    1. getComputedStyle(obj, false)[attr] //ie8及以下ie不支持
+    2. obj.currentStyle[attr] // ie8及以下使用
+    3. 自己封装的getStyle函数
+    4. function getStyle(obj, attr){
+  		if(obj.currentStyle){ //ie8
+  			return obj.currentStyle[attr];
+  		}else{ //chrome等标准
+  			return getComputedStyle(obj, false)[attr]
+  		}
+  	}
+  * 属性检测
+    1. 判断某个属性，在某个浏览器环境中是否支持
+    2. if(obj.currentStyl)
+
+
+
+
+
   * 透明度fade函数

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>fade函数</title>
+	<style>
+
+	</style>
+</head>
+<body>
+
+<script>
+window.onload = function(){
+
+
+	function getStyle(obj, attr){
+		if(obj.currentStyle){ //ie8
+			return obj.currentStyle[attr];
+		}else{ //chrome等标准
+			return getComputedStyle(obj, false)[attr]
+		}
+	}
+
+	
+}
+</script>
+</body>
+</html>
