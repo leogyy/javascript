@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>move函数</title>
+	<style>
+		a{text-decoration: none;color:#000;}
+		#nav{margin:0 auto;margin-top:200px;
+			position:relative;width:600px;
+			height:40px;}
+		#nav-con{
+			position:absolute;z-index:11;
+			width:100%;height:40px;
+			overflow:hidden;
+		}
+		#nav-con a{display: block;float:left;
+    width:100px;height:40px;
+		text-align: center;
+		line-height:40px;
+		}
+		#activeBox{display:block;width:100px;
+			height:40px;
+		background-color: orange;
+    position:absolute;left:0;top:0;
+		z-index:8;
+	}
+	</style>
+</head>
+<body>
+
+	<div id="nav">
+		<span id="activeBox"></span>
+    <div id="nav-con">
+			<a href="#">首页</a>
+			<a href="#">电视</a>
+			<a href="#">电影</a>
+			<a href="#">游戏</a>
+			<a href="#">漫画</a>
+			<a href="#">娱乐</a>
+		</div>
+	</div>
+
+<script>
+window.onload = function(){
+
+
+	function move(obj, nNum){
+		clearInterval(obj.timeId);
+		var speed = 0;
+		//通过speed 正负控制方向
+		if(obj.offsetLeft > nNum){
+			speed = -10;  //向左
+		}else{
+			speed = 10; //向右
+		}
+		obj.timeId = setInterval(function(){
+			var left = obj.offsetLeft;
+			obj.style.left = (left + speed) + 'px';
+      var result = nNum - obj.offsetLeft;
+			if(Math.abs(result) <= 10){
+					clearInterval(obj.timeId);
+					obj.style.left  = nNum + 'px';
+			}
+		}, 30);
+	}
+
+}
+
+</script>
+</body>
+</html>

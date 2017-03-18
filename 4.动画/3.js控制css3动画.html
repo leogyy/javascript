@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>js控制css3动画</title>
+	<style>
+
+		.normal{
+			width:200px;height:200px;
+			transition:all ease 1.5s;
+			-webkit-transition:all ease 1.5s;
+			background-color:orange;
+		}
+    .animated{width:600px;height:300px;
+     background-color: red;
+		}
+
+		#btn{width:80px;height:40px;line-height:40px;color:#fff;text-align: center;background-color: #00d8ff;border:none;}
+	</style>
+</head>
+<body>
+<div id="box" class="normal"></div>
+<button id="btn">移动</button>
+
+<script>
+window.onload = function(){
+	var boxEl = document.getElementById('box');
+	var btnEl = document.getElementById('btn');
+
+	btnEl.onclick = function(){
+	  boxEl.style.width = '600px';
+		boxEl.style.height = '300px';
+		boxEl.style.transform = 'scale(2)';
+		// boxEl.className = 'normal animated';
+	}
+
+
+}
+
+</script>
+</body>
+</html>

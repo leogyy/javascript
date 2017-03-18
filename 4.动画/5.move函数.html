@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>move函数</title>
+	<style>
+	   body{margin:0;padding:0;}
+		.normal{
+			width:200px;height:200px;
+			background-color:orange;
+			position:absolute;
+			left:0px;
+			top:100px;
+		}
+		.box2{height:10px;width:600px;background-color: red;}
+		#btn{width:80px;height:40px;line-height:40px;color:#fff;text-align: center;background-color: #00d8ff;border:none;}
+		#box{left:1000px;}
+		#box2{top:400px;}
+	</style>
+</head>
+<body>
+<div id="box" class="normal"></div>
+<div id="box2" class="normal"></div>
+<div class="box2"></div>
+<button id="btn">向左移动</button>
+<button id="btn2">向右移动</button>
+<script>
+window.onload = function(){
+	var boxEl = document.getElementById('box');
+	var btnEl = document.getElementById('btn');
+	var boxEl2 = document.getElementById('box2');
+	var btnEl2 = document.getElementById('btn2');
+
+	btnEl.onclick = function(){
+		move(boxEl, 400);
+	}
+
+	btnEl2.onclick = function(){
+		move(boxEl2, 1000);
+	}
+
+
+	//obj.timeId 给obj设置了一个属性为timeId
+
+	function move(obj, nNum){
+		clearInterval(obj.timeId);
+		var speed = 0;
+		//通过speed 正负控制方向
+		if(obj.offsetLeft > nNum){
+			speed = -10;  //向左
+		}else{
+			speed = 10; //向右
+		}
+		obj.timeId = setInterval(function(){
+			var left = obj.offsetLeft;
+			obj.style.left = (left + speed) + 'px';
+      var result = nNum - obj.offsetLeft;
+			if(Math.abs(result) <= 10){
+					clearInterval(obj.timeId);
+					obj.style.left  = nNum + 'px';
+			}
+		}, 30);
+	}
+
+
+
+
+}
+
+</script>
+</body>
+</html>

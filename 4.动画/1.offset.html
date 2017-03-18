@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>数字时钟</title>
+	<style>
+	 body{padding:0;margin:0;}
+	 #box{width:200px;height:200px;
+	 background-color:orange;
+ 	 margin-left:200px;
+	 padding-left:10px;
+   position:absolute;left:200px;
+ }
+	</style>
+</head>
+<body>
+	<div id="box" style=""></div>
+<script>
+window.onload = function(){
+   var boxEl = document.getElementById('box');
+	 console.log(boxEl.offsetLeft);
+	 console.log(boxEl.offsetWidth);
+
+	 console.log('style.left:值为 ' + boxEl.style['left'] )
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>js动画</title>
+	<style>
+	   body{margin:0;padding:0;}
+		.normal{
+			width:200px;height:200px;
+			background-color:orange;
+			position:absolute;
+			left:0px;
+			top:100px;
+		}
+		.box2{height:10px;width:600px;background-color: red;}
+		#btn{width:80px;height:40px;line-height:40px;color:#fff;text-align: center;background-color: #00d8ff;border:none;}
+	</style>
+</head>
+<body>
+<div id="box" class="normal"></div>
+<div class="box2"></div>
+<button id="btn">移动</button>
+
+<script>
+window.onload = function(){
+	var boxEl = document.getElementById('box');
+	var btnEl = document.getElementById('btn');
+  var timeId = null;
+
+	btnEl.onclick = function(){
+		//清除上一个定时器，保证系统中只有一个定时器在运行，
+		//防止出现 点击 加速的问题
+		clearInterval(timeId);
+    timeId = setInterval(function(){
+			//获取盒子的当前距离左边位置
+			var left = boxEl.offsetLeft;
+
+      //当前值+10，然后设置left值
+			boxEl.style.left = (left + 10) + 'px';
+			// 当盒子位置到达600px的时候，关闭定时器
+			if(left >= 600){
+				clearInterval(timeId);
+				//防止超出600px,直接设置成想要的位置
+				boxEl.style.left = '600px';
+			}
+		}, 30);
+
+		// 200   第一次  210
+    // 210     2    210
+		// 210     3    220
+    //  600     n     关闭定时器，动画停止
+
+	}
+
+
+}
+
+</script>
+</body>
+</html>
