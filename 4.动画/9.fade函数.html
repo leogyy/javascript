@@ -13,7 +13,13 @@
 <script>
 window.onload = function(){
 
-
+  /**
+	* 根据样式的属性名，获取值
+	* obj object 元素
+	* attr string 元素属性名
+	* return
+	* getStyle(boxEl, 'width')  100px
+	*/
 	function getStyle(obj, attr){
 		if(obj.currentStyle){ //ie8
 			return obj.currentStyle[attr];
@@ -22,7 +28,7 @@ window.onload = function(){
 		}
 	}
 
-	
+
 }
 </script>
 </body>
