@@ -51,8 +51,6 @@
     1. 判断某个属性，在某个浏览器环境中是否支持
     2. if(obj.currentStyl)
 
-
-
-
-
   * 透明度fade函数
+    1. 需要使用getStyle函数
+    
