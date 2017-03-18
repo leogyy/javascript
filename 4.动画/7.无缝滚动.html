@@ -60,21 +60,24 @@
 window.onload = function(){
 	var scrollCon = document.getElementById('scroll-con');
 
+  //复制元素内容
   var allLink = scrollCon.innerHTML + scrollCon.innerHTML;
 
-
+ //设置滚动内容 为 10个 图片
 	scrollCon.innerHTML = allLink;
 
 	var timeId = null;
 
 	timeId = setInterval(function(){
-
-		console.log(scrollCon.offsetLeft );
+  //  当滚动内容正好是 一半的时候
+	// 说明滚动 5个元素
 		if(scrollCon.offsetLeft  <= -1100){
-			console.log(1111111);
+      //立即 设置为初始位置
 			scrollCon.style.left = '0px';
 		}
-		scrollCon.style.left = (scrollCon.offsetLeft - 5) +　'px';
+		// 根据offsetLeft值，不断改变 元素的位置
+		scrollCon.style.left = (
+			scrollCon.offsetLeft - 5) +　'px';
 	}, 30)
 
 
