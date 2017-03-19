@@ -42,10 +42,12 @@ DOM
   * setAttribute 设置节点属性
     1. setAttribute('src', 'images/xx.png')
        * 可以设置自定义属性
-  * getAttribute(属性名)   
+  * getAttribute(属性名)  获取属性
+  * removeAttribute(属性名) 删除属性
 
 9. 删除节点
   1. 父节点.removeChild(要删除的节点)
+
 
 10. 父节点
   * 子节点.parentNode
@@ -65,7 +67,10 @@ DOM
    * lastElementChild  最后一个元素子节点
    * childeNodes 所有的节点，包括回车等
    * children 空节点不会计算在内
-13. 兄弟节点
+13. 克隆节点
+   * var node1 = 要克隆的节点.cloneNode(true)
+   * true 会把该节点的子节点一起克隆   
+14. 兄弟节点
    * nextSibling  下一个节点
    * previousSibling  上一个节点
    * nextElementSibling 下一个元素节点
