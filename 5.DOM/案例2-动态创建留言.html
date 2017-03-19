@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>todolist</title>
+    <style>
+      body{margin:0;padding:0;background: url(images/form-bg.jpg) no-repeat;}
+      .container{width:600px;margin:0 auto;margin-top:100px;}
+      #msg{display: block;width:400px;margin:0 auto;height:120px;
+      border:3px solid #2b2a2b;
+      border-radius:12px;
+      font-size:18px;
+      }
+      #btn{width:100px;height:40px;border:2px solid #fff;
+      border-radius:20px;
+      text-align: center;line-height:40px;color:#fff;
+      font-weight:bold;font-size:16px;
+      background-color: #0685ea;
+      cursor:pointer;
+      margin-left:396px;
+      margin-top:20px;
+      }
+      #content{width:400px;margin:0 auto;margin-top:30px;}
+      .msg-wrap{width:100%;overflow:hidden;}
+      .msg-wrap img,.msg-wrap p{float:left;}
+      .msg-wrap img{margin-top:6px;width:50px;height:50px;border:2px solid #fff;border-radius:50%;}
+      .msg-wrap p{width:240px;margin-left:20px;font-size:14px;
+        background-color: rgba(32,32,32,0.6);
+        border-radius:30px;padding:10px 20px;color:#fff;}
+    </style>
+</head>
+<body>
+<div class="container">
+  <textarea id="msg"></textarea>
+  <button id="btn">发布</button>
+  <div id="content">
+    <div class="msg-wrap"><img src="images/head.jpg"><p>哈哈哈哈</p></div>
+  </div>
+</div>
+<script>
+
+  window.onload = function(){
+    var btn = document.getElementById('btn');
+    var content = document.getElementById('content');
+    var msgWraps = content.getElementsByTagName('div');
+    console.log(msgWraps[0])
+    var msg = document.getElementById('msg');
+    btn.onclick = function(){
+      var msgText = msg.value;
+      if(msgText.length != ''){
+        var msgWrap = document.createElement('div');
+        msgWrap.className = 'msg-wrap';
+
+        var img = document.createElement('img');
+        img.setAttribute('src', 'images/head.jpg');
+
+        var  p = document.createElement('p');
+        p.innerHTML = msgText;
+
+        msgWrap.appendChild(img);
+        msgWrap.appendChild(p);
+        content.insertBefore(msgWrap, msgWraps[0]);
+        msg.value = '';
+      }
+    }
+
+
+  }
+</script>
+</body>
+</html>
