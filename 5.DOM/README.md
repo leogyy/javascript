@@ -51,3 +51,27 @@ DOM
   * 子节点.parentNode
   * 父节点的父节点   
     1. 子节点.parentNode.parentNode
+11. 节点信息
+   * nodeType
+     1. 文本节点 为 3
+     2. 元素节点 为 1
+   * nodeName
+     1. 元素节点 为  大写的 标签，例如: UL
+     2. 文本节点 为 #text
+12. 子节点
+   * firstChild 第一个子节点 ie下获取的是元素，chrome下会获取第一个空节点，例如回车
+   * lastChild  最后一个子节点，也有兼容问题,同上
+   * firstElementChild 第一个元素子节点
+   * lastElementChild  最后一个元素子节点
+   * childeNodes 所有的节点，包括回车等
+   * children 空节点不会计算在内
+13. 兄弟节点
+   * nextSibling  下一个节点
+   * previousSibling  上一个节点
+   * nextElementSibling 下一个元素节点
+   * previousElementSibling 上一个元素节点
+   * 案例：排序
+     1. insertBefore(要插入的节点，
+       在哪个节点之前插入)
+     2. nextElementSibling
+     3. previousElementSibling

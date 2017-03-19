@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>排序</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<ul id="list">
+	<li>
+		<span>111111</span>
+		<button class="up">向上</button>
+		<button class="down">向下</button>
+	</li>
+	<li>
+		<span>2222222</span>
+		<button class="up">向上</button>
+		<button class="down">向下</button>
+	</li>
+	<li>
+		<span>33333333</span>
+		<button class="up">向上</button>
+		<button class="down">向下</button>
+	</li>
+	<li>
+		<span>44444444</span>
+		<button class="up">向上</button>
+		<button class="down">向下</button>
+	</li>
+	<li>
+		<span>5555555</span>
+		<button class="up">向上</button>
+		<button class="down">向下</button>
+	</li>
+
+
+
+</ul>
+
+
+<script>
+	window.onload = function(){
+		var list = document.getElementById('list');
+		var allLi = list.getElementsByTagName('li');
+    var upBtns = document.querySelectorAll('.up');
+		var downBtns = document.querySelectorAll('.down');
+    // 给所有的 up按钮绑定click事件
+    for(var i = 0; i < upBtns.length; i++){
+
+			upBtns[i].onclick = function(){
+				//获取点击按钮的父元素li
+				var liEl = this.parentNode;
+				//上一个li
+				var prevLi = liEl.previousElementSibling;
+				//处理点击第一个li时候，
+				//第一个li的上一兄弟节点为空的情况
+				if(prevLi == null){
+					console.log('已到顶端');
+					return;
+				}
+				list.insertBefore(liEl, prevLi);
+			}
+
+      downBtns[i].onclick = function(){
+				//当前点击的 按钮的父元素 li
+				var liEl = this.parentNode;
+				//当前li的 下一个兄弟节点
+				var nextLi = liEl.nextElementSibling;
+
+				if(nextLi == null){
+					console.log('已到底端');
+					return;  //中断程序，后面代码不执行
+				}
+				//把下一个li,插入到 当前点击的 li的 前面
+				list.insertBefore(nextLi, liEl);
+
+
+			}
+
+
+		}
+
+
+
+
+
+
+
+
+	}
+
+</script>
+</body>
+</html>

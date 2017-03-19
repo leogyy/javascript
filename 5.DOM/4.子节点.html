@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>DOM</title>
+	<style>
+    .test-img{border:10px solid red;}
+	</style>
+</head>
+<body>
+<ul id="list">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+
+
+<script>
+	window.onload = function(){
+		// ul
+		var list = document.getElementById('list');
+		// console.log(list.firstChild);
+		console.log(list.firstElementChild);
+		console.log(list.lastElementChild);
+    console.log(list.childNodes);
+		console.log(list.children)
+
+
+
+	}
+
+</script>
+</body>
+</html>

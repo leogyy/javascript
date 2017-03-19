@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>DOM</title>
+	<style>
+    .test-img{border:10px solid red;}
+	</style>
+</head>
+<body>
+<input type="text" id="msg" >
+<button id="btn">添加</button>
+<ul id="list"></ul>
+
+<div id="box"></div>
+
+
+<script>
+	window.onload = function(){
+		var btn = document.getElementById('btn');
+		var list = document.getElementById('list');
+    var text = document.createTextNode('哈哈哈哈');
+		console.log('text节点的类型为：' + text.nodeType);
+    console.log(text.nodeName);
+		console.log('list元素的节点类型为：' + list.nodeType);
+		console.log('list元素的节点名字为：' + list.nodeName);
+
+
+
+
+	}
+
+</script>
+</body>
+</html>
