@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>排序</title>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+     body{margin:0;padding:0;background: url(images/form-bg.jpg) no-repeat;}
+     ul,li{margin:0;padding:0;}
+     li{list-style: none;}
+     #list{width:360px;margin:0 auto;margin-top:100px;padding:20px;}
+     #list li{transition:all linear 0.5s;width:360px;padding:10px 20px;margin-top:4px;border-radius:5px;border:2px solid #0088f4;background-color: #fff;color:#55acf1}
+     #list li .iconfont{float:right;margin-right:6px;font-size:24px;cursor:pointer;}
+     #list li .iconfont:hover{color:#026bbf;}
+     #list li:hover{border:2px solid #f56812;}
+     @keyframes down{
+       0%{transform:translateY(-100%);}
+       100%{transform:translateY(0);}
+     }
+     @keyframes up{
+       0%{transform:translateY(100%);}
+       100%{transform:translateY(0);}
+     }
+     .active-up{animation:up 1s ease;}
+     .active-down{animation:down 1s ease;}
+     @keyframes fade{
+       0%{opacity:0}
+       100%{opacity:1;}
+     }
+     .active-fade{animation:fade 1s ease;}
+
+    </style>
+</head>
+<body>
+
+<ul id="list">
+  <li>
+    <span>1.iPhone在台湾竟这么好卖</span>
+    <i class="iconfont icon-xiajiantou down"></i>
+    <i class="iconfont icon-jiantoushang up"></i>
+  </li>
+  <li>
+    <span>2.大神把4层楼压缩成1米高</span>
+    <i class="iconfont icon-xiajiantou down"></i>
+    <i class="iconfont icon-jiantoushang up"></i>
+  </li>
+  <li>
+    <span>3.华为P10仅999元预约</span>
+    <i class="iconfont icon-xiajiantou down"></i>
+    <i class="iconfont icon-jiantoushang up"></i>
+  </li>
+  <li>
+    <span>4.又一款特斯拉SUV曝光</span>
+    <i class="iconfont icon-xiajiantou down"></i>
+    <i class="iconfont icon-jiantoushang up"></i>
+  </li>
+  <li>
+    <span>5.华为手表升级安卓Wear2</span>
+    <i class="iconfont icon-xiajiantou down"></i>
+    <i class="iconfont icon-jiantoushang up"></i>
+  </li>
+
+</ul>
+<script>
+  window.onload = function(){
+    var upEls = document.querySelectorAll('.up');
+    var downEls = document.querySelectorAll('.down');
+    var listEl = document.getElementById('list');
+    var allLi = document.getElementsByTagName('li');
+
+    function clearActive(){
+      for(var i = 0; i < allLi.length; i++){
+        allLi[i].className = '';
+      }
+    }
+
+    for(var i = 0; i < upEls.length; i++){
+    //  向上按钮
+      upEls[i].onclick = function(){
+        var liEl = this.parentNode;  //获取li
+        var prevLiEl = liEl.previousElementSibling; //上一个兄弟节点
+        if(prevLiEl == null){  //如果上一个兄弟节点为空，即点击的是第一个
+          return;             //则返回
+        }
+        //上移
+        clearActive();
+        listEl.insertBefore(liEl, prevLiEl); // 将该节点插入 上一个兄弟节点之前
+        liEl.className = 'active-fade';
+      }
+
+     //下移按钮
+      downEls[i].onclick = function(){
+        var liEl = this.parentNode;    //获取li
+        var nLiEl = liEl.nextElementSibling;   //获取下一个节点
+        var nextLiEl = null;
+        if(nLiEl != null){   //如果下一个节点不为空
+          //将下一个节点插入到当前节点前面
+          clearActive();
+          listEl.insertBefore(nLiEl, liEl);
+          nLiEl.className = 'active-fade';
+        }else{
+          return;
+        }
+
+      }
+
+
+    }
+
+  }
+</script>
+</body>
+</html>
