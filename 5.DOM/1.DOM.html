@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>DOM</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<button id="btn">添加</button>
+<ul id="list">
+	<li>春光</li>
+</ul>
+
+<a href="#" class="link">1</a>
+<a href="#" class="link">2</a>
+<a href="#" class="link">3</a>
+<a href="#" class="link">4</a>
+<a href="#" class="link">5</a>
+<script>
+	window.onload = function(){
+		var btn = document.getElementById('btn');
+		var list = document.getElementById('list');
+    var link = document.querySelector('.link');
+		link.style.color = 'red';
+
+		btn.onclick = function(){
+			//1. 创建li节点  <li></li>
+			var liEl = document.createElement('li');
+      //2. 创建文本节点   李白
+			var text = document.createTextNode('李白');
+      //3. 将文本插入到 li中 <li>李白</li>
+			liEl.appendChild(text);
+			// 向ul中插入li
+			list.appendChild(liEl);
+
+		}
+
+
+
+	}
+</script>
+</body>
+</html>

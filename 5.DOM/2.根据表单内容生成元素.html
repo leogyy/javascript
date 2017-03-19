@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>DOM</title>
+	<style>
+    .test-img{border:10px solid red;}
+	</style>
+</head>
+<body>
+<input type="text" id="msg" >
+<button id="btn">添加</button>
+<ul id="list"></ul>
+
+<div id="box"></div>
+
+
+<script>
+	window.onload = function(){
+		var btn = document.getElementById('btn');
+		var list = document.getElementById('list');
+    var msg = document.getElementById('msg');
+    var allLi = list.getElementsByTagName('li');
+		var boxEl = document.getElementById('box');
+		console.log(allLi.length);
+		btn.onclick = function(){
+			//创建li
+			var liEl = document.createElement('li');
+      //创建 button按钮
+			var button = document.createElement('button');
+			//设置button里的文本内容
+			button.innerHTML = '删除';
+      //button绑定click事件
+			button.onclick = function(){
+		    //获取点击的那个的 父节点，即li
+				var parentLi = this.parentNode;
+				//删除 list下面的 该li
+				list.removeChild(parentLi);
+			}
+
+			//根据input值生成文本节点
+			var text = document.createTextNode(msg.value);
+			// <li>内容</li>
+
+      liEl.appendChild(text);
+			liEl.appendChild(button);
+
+
+
+
+
+      if(allLi.length == 0){ //如果ul里面节点为空
+				list.appendChild(liEl);  //使用appendChild
+			}else{  //否则使用insertBefore
+				list.insertBefore(liEl, allLi[0])
+			}
+
+			msg.value = '';
+
+
+		}
+
+
+
+	}
+</script>
+</body>
+</html>
