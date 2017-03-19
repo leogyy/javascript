@@ -72,7 +72,7 @@ DOM
    * previousElementSibling 上一个元素节点
    * 案例：留言板
    * ![image](https://github.com/leogyy/javascript/raw/master/preview-img/msg.png)
-<br>
+
    * 案例：排序
     1. insertBefore(要插入的节点，
        在哪个节点之前插入)
