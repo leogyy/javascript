@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>左右移动</title>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <style>
+     body{margin:0;padding:0;background: url(images/form-bg.jpg) no-repeat;}
+    .col{width:200px;height:400px;float:left;}
+    .col1,.col3{background-color: rgba(0,0,0,0.5);}
+    .container{background-color: rgba(0,0,0,0.2);overflow:hidden;width:600px;margin:0 auto;margin-top:100px;}
+    .col span{display: block;width:200px;height:40px;text-align: center;
+    color:#fff;line-height:40px;}
+    #left-btn,#right-btn{width:100px;display: block;border:none;
+    border-radius:4px;text-align: center;line-height:30px;
+    height:30px;color:#fff;}
+    #left-btn{margin:0 auto;margin-top:40px;background-color: #04a3ff;}
+    #right-btn{margin:0 auto;margin-top:40px;background-color: #02c81e;}
+   .active{background-color: rgba(0,0,0,0.6)}
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="col col1" id="team1">
+    <span>朱茵</span>
+    <span>赵文卓</span>
+    <span>王祖蓝</span>
+    <span>薛之谦</span>
+    <span>王凯</span>
+  </div>
+  <div class="col">
+    <button id="left-btn">左移</button>
+    <button id="right-btn">右移</button>
+  </div>
+  <div class="col col3" id="team2">
+    <span>何炅</span>
+    <span>赵又廷</span>
+    <span>杨幂</span>
+    <span>李宇春</span>
+    <span>胡歌</span>
+  </div>
+</div>
+<script>
+  window.onload = function(){
+    var arrLeft = ['l1','l2','l3','l4','l5'];
+    var arrRight = ['r1', 'r2','r3','r4', 'r5'];
+
+    var team1 = document.getElementById('team1');
+    var team2 = document.getElementById('team2');
+    var leftBtn = document.getElementById('left-btn');
+    var rightBtn = document.getElementById('right-btn');
+    var t1Spans = team1.getElementsByTagName('span');
+    var t2Spans = team2.getElementsByTagName('span');
+    //每个项 点击的时候，设置当前样式，设置data-type，表示选中
+    for(var i = 0; i < t1Spans.length; i++){
+      t1Spans[i].onclick = function(){
+        setStatus(this);
+      }
+      t2Spans[i].onclick = function(){
+        setStatus(this);
+      }
+    }
+
+    function setStatus(obj){
+      obj.className = 'active';
+      obj.setAttribute('data-type', 'select');
+    }
+
+    rightBtn.onclick = function(){
+      var arr = []; //用于存储要清楚的节点
+      //遍历，获取data-type,
+      for(var i = 0 ; i < t1Spans.length; i++){
+        var attr = t1Spans[i].getAttribute('data-type');
+        //如果是选中的项
+        if(attr == 'select'){
+          arr.push(t1Spans[i]); //插入到数组中
+          var node = t1Spans[i].cloneNode(true); //克隆节
+          node.className = '';  //清除选中样式 //清除节点的选中样式
+          node.removeAttribute('data-type');
+          node.onclick = function(){
+            setStatus(this);
+          }
+          team2.appendChild(node);  //插入到第二组中
+        }
+      }
+      console.log(arr)
+      // 删除team1中的 移动的节点
+      clearItem(team1, arr);
+
+    }
+
+
+
+        leftBtn.onclick = function(){
+          var arr = []; //用于存储要清楚的节点
+          //遍历，获取data-type,
+          for(var i = 0 ; i < t2Spans.length; i++){
+            var attr = t2Spans[i].getAttribute('data-type');
+            //如果是选中的项
+            if(attr == 'select'){
+              arr.push(t2Spans[i]); //插入到数组中
+              var node = t2Spans[i].cloneNode(true); //克隆节
+              node.className = '';  //清除选中样式 //清除节点的选中样式
+              node.removeAttribute('data-type');
+              // 节点克隆以后，事件需要重新绑定
+              node.onclick = function(){
+                setStatus(this);
+              }
+              team1.appendChild(node);  //插入到第二组中
+            }
+          }
+
+          // 删除team1中的 移动的节点
+          console.log(arr)
+          clearItem(team2, arr);
+
+        }
+
+    function clearItem(obj, arr){
+      for(var i = 0; i < arr.length; i ++){
+        obj.removeChild(arr[i])
+      }
+    }
+
+  }
+</script>
+</body>
+</html>
