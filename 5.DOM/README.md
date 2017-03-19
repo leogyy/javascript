@@ -80,4 +80,4 @@ DOM
      3. previousElementSibling
      4. 向上：把当前的li，插入到它的 上一个兄弟节点前面
      5. 向下：把当前的li的 下一个兄弟节点，插入到当前 li的前面
-     * ![image](https://github.com/leogyy/javascript/raw/master/preview-img/paixu.png)
+  * ![image](https://github.com/leogyy/javascript/raw/master/preview-img/paixu.png)
