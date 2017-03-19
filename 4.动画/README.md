@@ -53,4 +53,7 @@
 
   * 透明度fade函数
     1. 需要使用getStyle函数
-    
+  * 动画导航
+    1. ![image](https://github.com/leogyy/javascript/raw/master/preview-img/nav.png)
+    2. 无缝滚动
+    ![image](https://github.com/leogyy/javascript/raw/master/preview-img/wfgd.png)
