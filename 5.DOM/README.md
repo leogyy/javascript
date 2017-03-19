@@ -74,10 +74,10 @@ DOM
    * ![image](https://github.com/leogyy/javascript/raw/master/preview-img/msg.png)
 <br>
    * 案例：排序
-     1. insertBefore(要插入的节点，
+    1. insertBefore(要插入的节点，
        在哪个节点之前插入)
-     2. nextElementSibling
-     3. previousElementSibling
-     4. 向上：把当前的li，插入到它的 上一个兄弟节点前面
-     5. 向下：把当前的li的 下一个兄弟节点，插入到当前 li的前面
-     6. ![image](https://github.com/leogyy/javascript/raw/master/preview-img/paixu.png)
+    2. nextElementSibling
+    3. previousElementSibling
+    4. 向上：把当前的li，插入到它的 上一个兄弟节点前面
+    5. 向下：把当前的li的 下一个兄弟节点，插入到当前 li的前面
+    6. ![image](https://github.com/leogyy/javascript/raw/master/preview-img/paixu.png)
