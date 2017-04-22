@@ -55,3 +55,12 @@ bootstrap -- (官网)getbootstrap.com
         * pull-left
     2. 块居中center-block   
     3. 文本 text-center
+
+#### 使用
+    1. 导航条组件
+    2. 栅格布局
+    3. 按钮
+    4. 图标
+    5. 排版
+
+    
