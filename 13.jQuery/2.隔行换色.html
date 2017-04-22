@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>jQuery</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<li>内容</li>
+		<li class="second">内容</li>
+		<li>内容</li>
+		<li>内容</li>
+		<li>内容</li>
+		<li>内容</li>
+	</ul>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+// 页面加载的时候
+$(function(){
+	 $('<h1>李白</h1>').appendTo('body');
+	var list = $('#list');
+	list[0].style.backgroundColor="blue";
+})
+
+$(function(){
+	$('#list li').each(function(index, obj){
+		console.log(index);
+		console.log(obj);
+
+	})
+})
+
+
+//页面加载的时候
+$(document).ready(function(){
+	//写逻辑
+	$('#list li:odd').css('background-color','red');
+  $('#list li:first').css('background-color','blue').css('color','#fff');
+	$('#list li:last').css('background-color','blue').css('color','#fff');
+	$('#list li:eq(2)').css('background-color','orange');
+  // $()获取的元素无法使用原生js方法和属性
+
+});
+
+// window.onload = function(){
+// 		var list = document.getElementById('list');
+// 		var lis = list.getElementsByTagName('li');
+// 		for(var i = 0; i < lis.length;i++){
+// 			if(i % 2 == 0){
+// 				lis[i].style.backgroundColor='red'
+// 			}
+// 		}
+// }
+
+
+</script>
+</body>
+</html>

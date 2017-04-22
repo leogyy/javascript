@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>js模拟select</title>
+	<style>
+	  ul,li{margin:0;padding:0;}
+		li{list-style: none;}
+		.container{
+			width:500px;
+			height:400px;
+			margin:0 auto;
+			margin-top:60px;
+		}
+		#select-box{
+			width:200px;
+			margin:0 auto;
+			padding:10px 0;
+		}
+
+		#select-text{
+			display: block;
+			border-radius:20px;
+			height:24px;
+			border:2px solid #439600;
+			margin:0 auto;
+			font-family:"微软雅黑";
+			padding-left:10px;
+		}
+    #select-box{
+				border-radius:10px;
+				background-color: #99f7db;
+		}
+		#select-box ul{
+			display:none;
+      margin:0 auto;
+			margin-top:6px;
+			width:168px;
+			text-align: center;
+			font-family:"微软雅黑";
+		}
+		#select-box li{padding:4px 0;
+			cursor:pointer;
+		}
+		#select-box li:hover{
+			background-color: orange;
+			color:#fff;
+			border-radius:16px;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div id="select-box">
+		<input type="text" id="select-text" />
+		<ul id="select-list">
+			<li>金刚狼</li>
+			<li>白雪公主</li>
+			<li>变形金刚1</li>
+			<li>变形金刚2</li>
+			<li>变形金刚3</li>
+		</ul>
+	</div>
+</div>
+<script>
+	window.onload = function(){
+			var selectEl = document.getElementById('select-box');
+			var selectText = document.getElementById('select-text');
+      var selectList = document.getElementById('select-list');
+			var lis = selectList.getElementsByTagName('li');
+
+      for(var i = 0; i < lis.length; i++){
+				lis[i].onclick = function(e){
+					selectText.value = this.innerHTML;
+					selectList.style.display = 'none';
+					e.stopPropagation();//阻止事件冒泡
+				}
+			}
+
+			selectText.onclick = function(e){
+				console.log('input click...');
+				selectList.style.display = 'block';
+				e.stopPropagation();//阻止事件冒泡
+
+			}
+
+
+
+			document.onclick = function(e){
+				console.log('document click ...');
+				selectList.style.display = 'none';
+			}
+
+	}
+</script>
+</body>
+</html>

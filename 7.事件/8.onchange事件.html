@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>表单事件</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	<select id="color-select">
+		<option value="0">请选择颜色</option>
+		<option value="red">红色</option>
+		<option value="green">绿色</option>
+		<option value="orange">橙色</option>
+	</select>
+<script>
+	window.onload = function(){
+		var colorEl = document.getElementById('color-select');
+		colorEl.onchange = function(){
+			// 选择的不是默认的时候
+			if(this.value != '0'){
+				document.body.style.backgroundColor = this.value;
+			}
+
+		}
+	}
+</script>
+</body>
+</html>

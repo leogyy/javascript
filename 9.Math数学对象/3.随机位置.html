@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>随机位置</title>
+	<style>
+	#box{
+		position:absolute;
+		left:0;
+		top:0;
+		width:100px;
+		height:100px;
+		background-color: red;
+	}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+	window.onload = function(){
+     var boxEl = document.getElementById('box');
+     var cWidth = document.documentElement.clientWidth;
+		 var cHeight = document.documentElement.clientHeight;
+     //随机left值
+		 var left = getRandom(0, cWidth - 100);
+		 //随机top值
+		 var top = getRandom(0, cHeight - 100);
+     boxEl.style.left = left + 'px';
+		 boxEl.style.top = top + 'px';
+
+		// 随机整数函数
+	  function getRandom(n, m){
+			var num = Math.floor(Math.random()*(m - n + 1) + n );
+			return num;
+		}
+
+
+
+
+	}
+</script>
+</body>
+</html>

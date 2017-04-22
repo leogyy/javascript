@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>正则</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	<label>用户名</label>
+	<input type="text" id="username" />
+	<button id="login">登录</button>
+<script>
+	window.onload = function(){
+    var userEl = document.getElementById('username');
+		var loginBtn = document.getElementById('login');
+		loginBtn.onclick = function(){
+			var user = trim(userEl.value);
+			if(user == ''){
+				alert('请输入姓名');
+			}else{
+				console.log(user.length);
+				alert('恭喜，格式正确');
+			}
+
+		}
+
+		//  去除前后空格
+		function trim(str){
+			var reg = /(^\s*)|(\s*$)/g;
+			return str.replace(reg, '');
+		}
+	}
+</script>
+</body>
+</html>

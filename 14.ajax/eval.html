@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>ajax</title>
+	<style>
+
+	</style>
+</head>
+<body>
+
+<script>
+window.onload = function(){
+	var str = '1+1';
+	// console.log(str);
+	var res = eval(str);
+	console.log(res);
+
+	// var str2 = 'function(){alert(1)}';
+	// // console.log(str2);
+	// eval('('+ str2 + ')()');
+
+	 var  jsonStr = '{"name" : "hello"}';
+   var a = eval('(' + jsonStr + ')');
+   console.log(a.name);
+
+	 var str3 = '["李白","白居易"]';
+	 var b = eval(str3);
+
+	 console.log(b[0]);
+
+	// console.log(eval('({})'));
+
+
+
+}
+
+</script>
+</body>
+</html>

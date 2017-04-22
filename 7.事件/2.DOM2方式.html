@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>事件</title>
+	<style>
+	#box{
+		width:100px;
+		height:100px;
+		background-color: red;
+	}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+	window.onload = function(){
+		var boxEl = document.getElementById('box');
+
+		function test(){
+			alert('李白');
+			// boxEl.removeEventListener('click', test, false);
+		}
+
+    function test2(){
+			alert('鲁班');
+		}
+
+    boxEl.addEventListener('click', test, false);
+		boxEl.addEventListener('click', test2, false);
+
+
+
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>轮播图</title>
+	<style>
+    #slide-wrap{
+			width:960px;
+			height:460px;
+			margin:0 auto;
+			margin-top:100px;
+			position:relative;
+			overflow:hidden;
+		}
+
+	#slide-con a{
+		display:block;
+		width:960px;
+		height:460px;
+		position:absolute;
+		left:0;
+		top:0;
+		opacity: 0;
+	}
+	.slide-btn{
+		display: block;
+		width:40px;
+		height:68px;
+		position: absolute;
+		z-index:40;
+	}
+	.prev-btn{
+		left:0;
+		top:200px;
+		background:url(images/prev-btn.png) no-repeat;
+	}
+	.next-btn{
+		right:0;
+		top:200px;
+		background:url(images/next-btn.png) no-repeat;
+	}
+	#slide-nav{
+		height:20px;
+		position:absolute;
+		right:20px;bottom:20px;
+		z-index:50;
+	}
+	.slide-ico{
+		display: inline-block;
+		width:20px;
+		height:20px;
+		margin-right:6px;
+		border:2px solid #fff;
+		border-radius:50%;
+	}
+	.slide-active{
+		background-color: #fff;
+	}
+	</style>
+</head>
+<body>
+<div id="slide-wrap">
+
+	<div id="slide-con">
+		<a href="#">
+			<img width="100%" src="images/slide-img1.jpg" />
+		</a>
+		<a href="#">
+			<img width="100%" src="images/slide-img2.jpg" />
+		</a>
+		<a href="#">
+			<img width="100%" src="images/slide-img3.jpg" />
+		</a>
+		<a href="#">
+			<img  width="100%" src="images/slide-img4.jpg" />
+		</a>
+	</div>
+
+	<a href="javascript:void(0);" class="slide-btn next-btn"></a>
+	<a href="javascript:void(0);" class="slide-btn prev-btn"></a>
+
+	<div id="slide-nav">
+		<a href="javascript:void(0);" class="slide-ico slide-active"></a>
+		<a href="javascript:void(0);" class="slide-ico"></a>
+		<a href="javascript:void(0);" class="slide-ico"></a>
+		<a href="javascript:void(0);" class="slide-ico"></a>
+	</div>
+
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.cycle.all.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('#slide-con').cycle({
+		fx: 'scrollHorz',
+		timeout : 1500,
+		prev:'.prev-btn',
+		next: '.next-btn'
+	});
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>输入框</title>
+	<style>
+		/*#box{width:400px;height:400px;
+			background-color:red;
+			margin-top:50px;
+		}*/
+	</style>
+</head>
+<body>
+	<button id="add-btn">点击输入</button>
+	<div id="box">
+
+	</div>
+
+<script>
+
+	window.onload = function(){
+		var addBtn = document.getElementById('add-btn');
+		var boxEl = document.getElementById('box');
+		addBtn.onclick = function(){
+			var foo = window.prompt('请输入您的姓名');
+      // 1. 取消 null
+			// 2. 确定 文本
+			//如果用户点击确定
+			if(foo != null){
+				boxEl.innerHTML = foo;
+			}
+		}
+
+	}
+</script>
+</body>
+</html>

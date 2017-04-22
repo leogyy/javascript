@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>history应用</title>
+	<style>
+	html,body{margin:0;padding:0;}
+  .btn{
+		display: block;
+		width:80px;
+		height:36px;
+		line-height:36px;
+    text-align: center;
+		color:#fff;
+		background-color: orange;
+		margin-top:50px;
+
+	}
+
+	</style>
+</head>
+<body>
+<a href="http://localhost">百度</a>
+<span class="btn" id="back-btn">后退</span>
+<span class="btn" id="forward-btn">前进</span>
+<script>
+	window.onload = function(){
+		var fBtn = document.getElementById('forward-btn');
+		fBtn.onclick = function(){
+			//前进一步
+      history.go(2);
+		}
+	}
+</script>
+</body>
+</html>

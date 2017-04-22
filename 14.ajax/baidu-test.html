@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>模拟百度关键词推荐</title>
+	<style>
+		.container{
+			width:400px;
+			margin:0 auto;
+			margin-top:100px;
+		}
+		#baiduInput{
+			border:2px solid #6ab0ff;
+		}
+		ul,li{margin:0;padding:0;}
+		#list li{
+			list-style: none;
+			border-bottom:1px solid #ccc;
+		}
+
+	</style>
+</head>
+<body>
+<div class="container">
+  <input type="text" id="baiduInput" >
+	<ul id="list">
+
+	</ul>
+</div>
+<script src="js/ajax.js"></script>
+<script>
+window.onload = function(){
+	var baiduInput = document.getElementById('baiduInput');
+	var list = document.getElementById('list');
+	baiduInput.onkeyup = function(){
+		var t = new Date().getTime();
+		ajax('data-baidu.js?=t' + t,function(data){
+			var arr = eval(data);
+			var str = '';
+			for(var i = 0; i<arr.length;i++){
+				str+= '<li>'+ arr[i]+'</li>';
+			}
+			list.innerHTML = str;
+			console.log(str);
+
+
+		})
+	}
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>下拉菜单</title>
+	<style>
+    #nav{
+			background-color: orange;
+			width:600px;
+			height:40px;
+			margin:0 auto;
+	}
+	.main-nav{
+		float:left;
+		width:100px;
+		height:40px;
+		border:1px solid red;
+	}
+	.main-nav a{
+		display: block;
+		width:100px;
+		height:40px;
+		line-height:40px;
+		text-align: center;
+		color:#fff;
+		text-decoration: none;
+	}
+	.sub-nav{display: none;}
+	.sub-nav a{
+		display: block;
+		width:100px;
+		height:40px;
+		line-height:40px;
+		text-align: center;
+		background-color: blue;
+		color:#fff;
+
+	}
+	</style>
+</head>
+<body>
+	<div id="nav">
+
+		<div class="main-nav">
+			<a href="#">游戏</a>
+			<div class="sub-nav">
+				<a href="#">子菜单1</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+			</div>
+		</div>
+
+		<div class="main-nav">
+			<a href="#">游戏</a>
+			<div class="sub-nav">
+				<a href="#">子菜单2</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+			</div>
+		</div>
+
+		<div class="main-nav">
+			<a href="#">游戏</a>
+			<div class="sub-nav">
+				<a href="#">子菜单3</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+				<a href="#">子菜单</a>
+			</div>
+		</div>
+
+		<div class="main-nav">
+			<a href="#">游戏</a>
+			<div class="sub-nav">
+				<a href="#">子菜单4</a>
+				<a href="#">子菜单4</a>
+				<a href="#">子菜单4</a>
+				<a href="#">子菜单4</a>
+				<a href="#">子菜单4</a>
+				<a href="#">子菜单4</a>
+			</div>
+		</div>
+
+	</div>
+<script>
+	window.onload = function(){
+		var navEl = document.getElementById('nav');
+		var mainNav = navEl.children;
+		var subNav = document.getElementsByClassName('sub-nav');
+		console.log(mainNav);
+
+		for(var i = 0; i < mainNav.length; i++){
+      mainNav[i].index = i;
+
+			mainNav[i].onmouseover = function(){
+					subNav[this.index].style.display = 'block';
+			}
+
+			mainNav[i].onmouseout = function(){
+					subNav[this.index].style.display = 'none';
+			}
+
+
+		}
+
+	}
+</script>
+</body>
+</html>

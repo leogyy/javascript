@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>事件委托</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<ul id="list">
+	<li>白雪公主和小矮人</li>
+	<li>小红帽和大灰狼</li>
+	<li>灰姑娘和水晶鞋</li>
+	<li>阿里巴巴和四十大盗</li>
+</ul>
+
+<button id="add">添加</button>
+
+<script>
+	window.onload = function(){
+		var list = document.getElementById('list');
+		var lis = list.getElementsByTagName('li');
+		var addBtn = document.getElementById('add');
+
+		for(var i = 0; i < lis.length; i++){
+			lis[i].index = i;
+			lis[i].onclick = function(){
+				console.log(lis[this.index].innerHTML);
+			}
+		}
+    //委托给父元素ul 处理li点击事件
+	  list.onclick = function(e){
+			console.log(e.target);
+			console.log(e.target.nodeName);
+			console.log(e.target.innerHTML);
+			e.target.style.backgroundColor =  'red';
+		}
+
+    //添加按钮
+		addBtn.onclick = function(){
+			var liEl = document.createElement('li');
+			liEl.innerHTML = '糖果屋';
+      list.appendChild(liEl);
+
+		}
+
+	}
+</script>
+</body>
+</html>

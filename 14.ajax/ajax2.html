@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>ajax</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<h4>ajax读取服务器文件中的数组</h4>
+<button id="btn">读取</button>
+<ul id="content">
+
+</ul>
+<script src="js/ajax.js"></script>
+<script>
+window.onload = function(){
+	var btn = document.getElementById('btn');
+	var content = document.getElementById('content');
+	btn.onclick = function(){
+		//获取每次点击的时间戳
+		var t = new Date().getTime();
+		var url = 'data2.js?t='+ t;//静态数据
+		//result是服务器返回的数据
+		ajax(url, function(result){
+     var data = eval(result);
+		 var str = '';
+
+		 for(var i = 0; i < data.length;i++){
+			 str += '<li>'+ data[i] + '</li>';
+		 }
+
+		 content.innerHTML = str;
+
+		},function(){
+			// 失败以后的回调操作
+		});
+	}
+
+	//var url = 'test.txt';  //相对
+	// ajax(url, function(){
+	// 	//写成功以后的回调操作
+	// },function(){
+	// 	// 失败以后的回调操作
+	// });
+}
+
+</script>
+</body>
+</html>

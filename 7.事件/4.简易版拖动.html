@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>拖动</title>
+	<style>
+	#box{
+		width:100px;
+		height:100px;
+		background-color: red;
+		position:absolute;
+	}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+	window.onload = function(){
+		var boxEl = document.getElementById('box');
+		// 1. onmousedown 鼠标 按下
+		// 2. onmousemove 鼠标 移动
+		// 3. onmouseup   鼠标 抬起
+
+		boxEl.onmousedown = function(e){
+			boxEl.onmousemove = function(e){
+				boxEl.style.left = e.clientX + 'px';
+				boxEl.style.top = e.clientY + 'px';
+			}
+
+		}
+
+
+		boxEl.onmouseup = function(e){
+			boxEl.style.left = e.clientX + 'px';
+			boxEl.style.top = e.clientY + 'px';
+				boxEl.onmousedown = null;
+				boxEl.onmousemove = null;
+		}
+
+
+
+
+
+
+
+
+
+
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>键盘事件</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<p id="tip">
+	<span id="tip-text">您还可以输入</span>
+	<span id="num">30</span> / 30
+</p>
+<textarea id="msg">
+</textarea>
+<script>
+	window.onload = function(){
+		var numEl = document.getElementById('num');
+		var tipText = document.getElementById('tip-text');
+
+		var totalNum = 30;
+		var msgEl = document.getElementById('msg');
+    var numEl = document.getElementById('num');
+		msgEl.onkeyup = function(){
+			var msg = this.value;
+			//剩余字数
+			var num = totalNum - msg.length;
+			if(num >= 0){
+				tipText.innerHTML = '您还可以输入';
+				numEl.innerHTML = num;
+			}else{ //输入字数超过30
+				tipText.innerHTML = "您已超出";
+				numEl.innerHTML = msg.length - 30;
+			}
+
+		}
+
+	}
+</script>
+</body>
+</html>

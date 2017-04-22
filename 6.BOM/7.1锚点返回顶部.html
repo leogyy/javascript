@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>回到顶部</title>
+	<style>
+		.content{width:100%;height:5000px;border-bottom:10px solid red;}
+		#box{
+			display: none;
+			width:200px;
+			height:200px;
+			background-color: red;
+			position:fixed;
+			right:10px;
+			bottom:200px;
+
+		}
+		#box{color:#fff;}
+		#top{border-top:10px solid red;}
+		#center{font-size:60px;color:#fff;width:100%;height:1000px;background-color: orange;}
+		#bottom{font-size:60px;color:#fff;width:100%;height:1000px;background-color: blue;}
+
+	</style>
+</head>
+<body>
+<div id="top">这里是光明顶</div>
+<div id="center">中间</div>
+<div id="bottom">底部</div>
+<a href="#top" id="box">返回顶部</a>
+
+<script>
+
+	window.onload = function(){
+		var boxEl = document.getElementById('box');
+		window.onscroll = function(){
+			var top = document.body.scrollTop ||document.documentElement.scrollTop;
+			// 当滚动条滚动到200以后
+			if(top >= 200){
+				boxEl.style.display = 'block';
+			}else{
+				boxEl.style.display = 'none';
+			}
+
+		}
+
+	}
+</script>
+</body>
+</html>

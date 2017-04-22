@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>跳转</title>
+	<style>
+
+		.title{margin:0 auto;width:300px;text-align: center;color:red;margin-top:200px;}
+	</style>
+</head>
+<body>
+  <h1 class="title">
+		3s以后跳转到百度
+	</h1>
+<script>
+	window.onload = function(){
+		setTimeout(function(){
+			location.href = 'http://www.baiud.com';
+		}, 3000);
+	}
+</script>
+</body>
+</html>

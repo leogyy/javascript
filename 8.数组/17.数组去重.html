@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>数组</title>
+	<style>
+	#box{
+		width:100px;
+		height:100px;
+		background-color: red;
+	}
+	</style>
+</head>
+<body>
+
+<script>
+	window.onload = function(){
+		var arr = [1,2,3,2,4,1,5,3,2,6];
+		var tempArr = []; //空数组用于存放新的数据
+		for(var i = 0; i < arr.length; i++){
+			//判断arr[i] 在 tempArr是否存在
+			//如果不存在，push
+			// arrHasEl(tempArr,arr[i]) == false
+			if(!arrHasEl(tempArr,arr[i])){
+				tempArr.push(arr[i]);
+			}
+		}
+
+		console.log(tempArr);
+
+		//[1,2,3,4]  0 false
+		//判断 某个值是否在数组中
+		function arrHasEl(arr, el){
+			for(var i = 0; i < arr.length; i++){
+				if(arr[i] == el){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		var arr2 = [1,2,3,4];
+		console.log(arrHasEl(arr2,5))
+
+
+
+
+
+
+	}
+</script>
+</body>
+</html>

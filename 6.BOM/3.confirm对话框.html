@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>对话框</title>
+	<style>
+		#box{width:400px;height:400px;
+			background-color:red;
+			margin-top:50px;
+		}
+	</style>
+</head>
+<body>
+	<button id="delete-btn">删除</button>
+	<div id="box">
+		要删除的内容
+	</div>
+
+<script>
+
+	window.onload = function(){
+		var delBtn = document.getElementById('delete-btn');
+		var boxEl = document.getElementById('box');
+		delBtn.onclick = function(){
+			var foo = window.confirm('亲，真的要删除吗？');
+			//如果返回值为true，就是
+			// 用户点击了 确定
+			if(foo){
+				//删除操作,删除body下面的div#box
+				document.body.removeChild(boxEl);
+			}
+
+		}
+
+	}
+</script>
+</body>
+</html>

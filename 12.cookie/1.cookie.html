@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>cookie</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<script>
+	window.onload = function(){
+		// document.cookie='user=kitty';
+		// document.cookie = 'age=18'
+		// alert(document.cookie);
+	 var date = new Date();
+	 //设置到某一天
+ 	 date.setDate(date.getDate()+10);
+	 date.toGMTString();//转成时间字符串
+	 console.log(date);
+
+	 document.cookie = 'user=tom;expires=' + date;
+	 document.cookie = 'age=18;expires=' + date;
+   document.cookie = 'userid=001;expires=' + date;
+
+  //  取cookie
+  function getCookie(name){
+		var arr = document.cookie.split('; ');
+		for(var i = 0; i <arr.length; i++){
+			var arr2 = arr[i].split('=');
+			if(arr2[0] == name){
+				return arr2[1];
+			}
+		}
+
+		return '';
+	}
+
+	console.log(getCookie('age'));
+
+	}
+</script>
+</body>
+</html>

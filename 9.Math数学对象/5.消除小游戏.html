@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>消除小游戏</title>
+	<style>
+	  html,body{margin:0;padding:0;}
+		body{background-color: #8f239a;}
+		.container{
+			width:1100px;
+			height:680px;
+			margin:0 auto;
+			margin-top:50px;
+			position:relative;
+
+		}
+		#score{
+			width:80px;
+			height:80px;
+			border-radius:50%;
+			background-color: #8c6be6;
+			text-align: center;
+			line-height:80px;
+			font-size:30px;
+			color:#fff;
+			position:absolute;
+			left:0;
+			top:100px;
+		}
+		#map{
+			width:1000px;
+			height:680px;
+			border:4px solid #d7d1f6;
+      background-color: #423269;
+			position:absolute;
+			left:100px;
+			top:0;
+		}
+		#start-btn{
+			display: block;
+			width:100px;
+			height:30px;
+      font-weight:bold;
+			background-color:#9c02dd;
+			border:2px solid #c876eb;
+			border-radius:20px;
+			text-align: center;
+			line-height:30px;
+			color:#fff;
+			position:absolute;
+			left:550px;
+			bottom:20px;
+		}
+		.box{
+			width:80px;
+			height:80px;
+			position: absolute;
+			top:-80px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+			<div id="score">5</div>
+			<div id="map"></div>
+			<span id="start-btn">开始游戏</span>
+	</div>
+<script>
+	window.onload = function(){
+    var startBtn = document.getElementById('start-btn');
+    var colorArr = ['red', 'orange','yellow','blue','white'];
+		var scoreEl = document.getElementById('score');
+    var map = document.getElementById('map');
+		var box = null; // 全局变量
+		var num = 5; //游戏分数
+		// 开始按钮
+		startBtn.onclick = function(){
+			this.style.display = 'none';
+      render();  //渲染界面，创建div，动画等
+		}
+
+		function render(){
+
+			box = createBox(); //1. 创建
+			box.onclick = function(){
+				clearInterval(this.timeId);//清除定时器
+				num++;
+				map.removeChild(box);
+				render();
+				scoreEl.innerHTML = num;
+			}
+			map.appendChild(box); //2. 插入
+			move(box, 600, function(){// 3.动画和动画结束以后
+				num--;  //分数减1
+				if(num <= 0){//游戏结束
+					num = 0;
+					box.style.top = '600px';
+					console.log('Game over');
+				}else{  //分数大于0
+					map.removeChild(box); //4. 移除
+					render();  //5. 递归调用
+				}
+				scoreEl.innerHTML = num;
+
+			});
+		}
+
+		//创建一个div
+		function createBox(){
+			var el = document.createElement('div');
+			el.className = 'box';
+			el.style.left = getRandom(0,920) + 'px';
+			var colorIndex = getRandom(0, colorArr.length - 1);
+			el.style.backgroundColor = colorArr[colorIndex];
+			return el;
+		}
+
+
+		// 随机整数函数
+		function getRandom(n, m){
+			var num = Math.floor(Math.random()*(m - n + 1) + n );
+			return num;
+		}
+
+		// move运动函数
+		function move(obj, nNum, callback){
+				clearInterval(obj.timeId);
+				var speed = 0;
+				//通过speed 正负控制方向
+				if(obj.offsetTop > nNum){
+					speed = -10;  //向左
+				}else{
+					speed = 10; //向右
+				}
+				obj.timeId = setInterval(function(){
+					console.log('working');
+					var top = obj.offsetTop;
+					obj.style.top = (top + speed) + 'px';
+		      var result = nNum - obj.offsetTop;
+					if(Math.abs(result) <= 10){
+							clearInterval(obj.timeId);
+							obj.style.top  = nNum + 'px';
+							if(callback){//如果回调函数存在
+								callback();  //() 调用
+							}
+					}
+				}, 30);
+			}
+
+
+	}
+</script>
+</body>
+</html>

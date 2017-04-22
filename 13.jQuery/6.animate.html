@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>动画</title>
+	<style>
+   #box1{
+		 position:absolute;
+		 left:0;
+		 top:100px;
+		 width:100px;
+		 height:100px;
+		 background-color: red;
+	 }
+	</style>
+</head>
+<body>
+<button id="btn1">按钮</button>
+<div id="box1"></div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('#btn1').click(function(){
+
+		$('#box1').animate({
+				left : '400px',
+				opacity: 0.5,
+				top: '300px'
+		  }, 1000, function(){
+			// 动画执行完的回调函数
+			alert('动画执行完了');
+			$(this).css('width', '300px');
+	 });
+
+	});
+
+
+});
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>表单事件</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<input type="text" value="请输入姓名" id="name" />
+<script>
+	window.onload = function(){
+		var nameEl = document.getElementById('name');
+	  // 获取焦点事件
+		nameEl.onfocus = function(){
+			this.value = '';//清除表单内容
+		}
+
+		//姓名文本框 失去焦点事件
+		nameEl.onblur = function(){
+      var msg = this.value;
+			if(msg.length == 0){
+				this.value = '请输入姓名';
+			}else{
+				console.log(this.value)
+			}
+
+		}
+
+	}
+</script>
+</body>
+</html>

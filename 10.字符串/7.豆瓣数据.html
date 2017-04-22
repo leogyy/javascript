@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>字符串</title>
+	<style>
+	  h4,h5{margin:0;padding:0;}
+    .title{color:red;}
+		#main{width:400px;margin:0 auto;}
+		.row{width:100%;border:1px solid red;}
+		.row .score{font-weight:bold;color:orange;}
+
+	</style>
+</head>
+<body>
+<p id="count"></p>
+<div id="main">
+
+
+</div>
+<script src="js/data.js"></script>
+<script>
+	window.onload = function(){
+		var main = document.getElementById('main');
+		var countP = document.getElementById('count');
+		console.log(data);
+		var str = '';
+		var subjects = data.subjects;
+    for(var i = 0; i < subjects.length; i++){
+			console.log(subjects[i].year)
+str += '<div class="row">'+
+'<p>' + subjects[i].year + '</p>' +
+'<h4>' + subjects[i].title +'</h4>' + 
+'<p>'+ (subjects[i].genres).join(',') +'</p></div>';
+		}
+
+		main.innerHTML = str;
+
+
+		countP.innerHTML = data.title + '为' + data.count + '条';
+	}
+</script>
+</body>
+</html>

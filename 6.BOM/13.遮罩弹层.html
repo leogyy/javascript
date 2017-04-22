@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>遮罩弹层</title>
+	<style>
+	html,body{margin:0;padding:0;}
+	.content{
+		width:100%;
+		height:3000px;
+		background-color: orange;
+		overflow: hidden;
+	}
+
+	#login-btn{
+		display: block;
+		width:80px;
+		height:36px;
+		text-align: center;
+		line-height: 36px;
+		color:#fff;
+		border-radius: 20px;
+		background-color: #de4965;
+		margin:0 auto;
+		margin-top:50px;
+	}
+
+	#close-btn{
+		display: block;
+		width:80px;
+		height:36px;
+		text-align: center;
+		line-height: 36px;
+		color:#fff;
+		border-radius: 20px;
+		background-color: #de4965;
+		margin:0 auto;
+		margin-top:50px;
+	}
+	#layer{
+		display:none;
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+		height:1000px;
+		background-color: #000;
+		opacity:0.5;
+	}
+	#login-box{
+		display:none;
+		position:fixed;
+		left:0;
+		top:0;
+		width:310px;
+		height:340px;
+		border-radius:10px;
+		border:2px solid #de4965;
+		background-color: rgba(38,38,38,0.6);
+	}
+
+	</style>
+</head>
+<body>
+<div class="content">
+	<span id="login-btn">登录</span>
+</div>
+<!-- 遮罩层 -->
+<div id="layer"></div>
+<!-- 弹层 -->
+<div id="login-box">
+	<span id="close-btn">关闭</span>
+</div>
+<script>
+	window.onload = function(){
+		var layer = document.getElementById('layer');
+		var loginBox = document.getElementById('login-box');
+		var loginBtn = document.getElementById("login-btn");
+		var closeBtn = document.getElementById('close-btn');
+
+		loginBtn.onclick = function(){
+			layer.style.display = 'block';
+			loginBox.style.display = 'block';
+		}
+
+		closeBtn.onclick = function(){
+      loginBox.style.display = 'none';
+			layer.style.display = 'none';
+		}
+
+		// 初始化弹层位置
+    size();
+    // 2.遮罩
+   //文档实际尺寸
+		var sWidth = document.documentElement.scrollWidth;
+		var sHeight = document.documentElement.scrollHeight;
+		layer.style.height = sHeight + 'px';
+
+		window.onresize = function(){
+			size();
+		}
+    // 设置弹层left top
+		function size(){
+			    // 1.弹层
+					// 可视区
+					var cWidth = document.documentElement.clientWidth;
+					var cHeight = document.documentElement.clientHeight;
+			    // 弹层距离左侧left
+					var fLeft = Math.floor((cWidth - 310) / 2);
+					var fTop = Math.floor((cHeight - 340) / 2);
+			    loginBox.style.left = fLeft + 'px';
+					loginBox.style.top = fTop + 'px';
+		}
+
+
+	}
+
+
+
+
+
+</script>
+</body>
+</html>

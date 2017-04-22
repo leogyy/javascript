@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>折叠菜单</title>
+	<style>
+    .main{width:400px;margin:0 auto;
+			margin-top:100px;
+		}
+		a{
+			text-decoration: none;
+
+		}
+		#nav a{
+			display: block;
+			text-align: center;
+			height:40px;
+			line-height:40px;
+			background-color: orange;
+			color:#fff;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div class="main">
+		<span id="nav-btn">菜单</span>
+		<div id="nav">
+			<a href="#">首页</a>
+			<a href="#">项目</a>
+			<a href="#">项目</a>
+			<a href="#">项目</a>
+			<a href="#">项目</a>
+			<a href="#">项目</a>
+		</div>
+	</div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+$(document).ready(function(){
+	// var foo = true;
+	$('#nav-btn').click(function(){
+
+		// $('#nav').toggle();
+		$('#nav').slideToggle('slow');
+		// if(foo){
+		// 	// $('#nav').hide(300);//隐藏
+		// 	// $('#nav').slideUp();//收起
+		// 	$('#nav').fadeOut(300);
+		// 	foo = false;
+		// }else{
+		//   //$('#nav').show(300);//显示
+		// 	// $('#nav').slideDown();//展开
+		// 	$('#nav').fadeIn(300);
+		// 	foo = true;
+		//}
+	});
+});
+// window.onload = function(){
+// 	var btn = document.getElementById('nav-btn');
+// 	var nav = document.getElementById('nav');
+// 	var foo = true;
+// 	btn.onclick = function(){
+// 		if(foo){
+// 			nav.style.display = 'none';
+// 			foo = false;
+// 		}else{
+// 			nav.style.display = 'block';
+// 			foo = true;
+// 		}
+//
+// 	}
+// }
+
+</script>
+</body>
+</html>

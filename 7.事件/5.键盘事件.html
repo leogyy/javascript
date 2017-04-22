@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>键盘事件</title>
+	<style>
+	#box{
+		width:100px;
+		height:100px;
+		background-color: red;
+		position:absolute;
+	}
+	</style>
+</head>
+<body>
+
+
+<script>
+	window.onload = function(){
+		//键盘按下
+		document.onkeydown = function(e){
+			console.log('键盘按下');
+			console.log(e.keyCode);
+			if(e.keyCode == 13){
+				console.log('您按下了enter键');
+			}
+		}
+
+    document.onkeyup = function(e){
+			console.log('键盘抬起');
+		}
+
+
+
+
+
+
+
+
+	}
+</script>
+</body>
+</html>

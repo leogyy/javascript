@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>或</title>
+	<style>
+		/*#box{width:400px;height:400px;
+			background-color:red;
+			margin-top:50px;
+		}*/
+		.content{width:100%;height:3000px;border-bottom:10px solid red;}
+	</style>
+</head>
+<body>	<button id="open-btn">打开窗口</button>
+<div class="content"></div>
+
+<script>
+
+	window.onload = function(){
+    // var a = 2 || 3;  // 2
+
+		var a = false || 3; // 3
+		console.log(a);
+
+		// 或 前面如果是false
+		// 执行 或 后面的 语句
+    // 否则 直接执行前面的语句
+
+		var top = document.body.scrollTop || document.documentElement.scrollTop;
+
+
+
+
+
+	}
+</script>
+</body>
+</html>

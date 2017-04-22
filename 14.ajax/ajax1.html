@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>ajax</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<button id="btn">读取</button>
+<div id="content"></div>
+<script src="js/ajax.js"></script>
+<script>
+window.onload = function(){
+	var btn = document.getElementById('btn');
+	var content = document.getElementById('content');
+	btn.onclick = function(){
+		var url = 'http://localhost/ajax-study/data.js'; //绝对
+		ajax(url, function(result){
+			//写成功以后的回调操作
+			console.log(result);
+			console.log(typeof(result));
+			content.innerHTML = result;
+		},function(){
+			// 失败以后的回调操作
+		});
+	}
+
+	//var url = 'test.txt';  //相对
+	// ajax(url, function(){
+	// 	//写成功以后的回调操作
+	// },function(){
+	// 	// 失败以后的回调操作
+	// });
+}
+
+</script>
+</body>
+</html>

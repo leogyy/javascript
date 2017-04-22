@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>navigator对象</title>
+	<style>
+	html,body{margin:0;padding:0;}
+
+
+	</style>
+</head>
+<body>
+<h1 id="title"></h1>
+<script>
+	window.onload = function(){
+		var title = document.getElementById('title');
+		console.log(navigator.userAgent);
+		// console.log('appCodeName：'+ navigator.appCodeName);
+		// console.log('appName：'+ navigator.appName)
+		// console.log('appVersion: '+ navigator.appVersion)
+		// console.log('操作系统: '+ navigator.platform)
+
+    // var str = 'hellow kitty';
+		// console.log(str.indexOf('l'));
+
+    // 得到浏览器
+		function getBrowser(){
+			var str = navigator.userAgent;
+      var browser = '';
+
+			if(str.indexOf('MSIE') > -1){
+				browser = 'IE';
+			}else if(str.indexOf('Chrome') > -1){
+				browser = 'chrome';
+			}else if(str.indexOf('Firefox') > -1){
+				browser = 'firefox';
+			}
+
+			return browser;
+
+		}
+
+		console.log(getBrowser());
+
+	}
+</script>
+</body>
+</html>

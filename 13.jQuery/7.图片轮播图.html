@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>轮播图</title>
+	<style>
+    #slide-wrap{
+			width:960px;
+			height:460px;
+			margin:0 auto;
+			margin-top:100px;
+			position:relative;
+			overflow:hidden;
+		}
+
+	#slide-con a{
+		display:block;
+		width:960px;
+		height:460px;
+		position:absolute;
+		left:0;
+		top:0;
+		opacity: 0;
+	}
+	.slide-btn{
+		display: block;
+		display:none;
+		width:40px;
+		height:68px;
+		position: absolute;
+		z-index:40;
+	}
+	.prev-btn{
+		left:0;
+		top:200px;
+		background:url(images/prev-btn.png) no-repeat;
+	}
+	.next-btn{
+		right:0;
+		top:200px;
+		background:url(images/next-btn.png) no-repeat;
+	}
+	#slide-nav{
+		height:20px;
+		position:absolute;
+		right:20px;bottom:20px;
+		z-index:50;
+	}
+	.slide-ico{
+		display: inline-block;
+		width:20px;
+		height:20px;
+		margin-right:6px;
+		border:2px solid #fff;
+		border-radius:50%;
+	}
+	.slide-active{
+		background-color: #fff;
+	}
+	</style>
+</head>
+<body>
+<div id="slide-wrap">
+
+	<div id="slide-con">
+		<a href="#">
+			<img width="100%" src="images/slide-img1.jpg" />
+		</a>
+		<a href="#">
+			<img width="100%" src="images/slide-img2.jpg" />
+		</a>
+		<a href="#">
+			<img width="100%" src="images/slide-img3.jpg" />
+		</a>
+		<a href="#">
+			<img  width="100%" src="images/slide-img4.jpg" />
+		</a>
+	</div>
+
+	<a href="javascript:void(0);" class="slide-btn next-btn"></a>
+	<a href="javascript:void(0);" class="slide-btn prev-btn"></a>
+
+	<div id="slide-nav">
+		<a href="javascript:void(0);" class="slide-ico slide-active"></a>
+		<a href="javascript:void(0);" class="slide-ico"></a>
+		<a href="javascript:void(0);" class="slide-ico"></a>
+		<a href="javascript:void(0);" class="slide-ico"></a>
+	</div>
+
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+$(document).ready(function(){
+  // 设置a的z-index
+	var allLinks = $('#slide-con a');
+	var zNum = 30;//初始z-index
+	var now = 0;//初始页码
+	var timeId = null;
+  // 自动播放
+  timeId = setInterval(function(){
+		play();
+	}, 1500);
+
+	// 主体鼠标事件
+	$('#slide-wrap').hover(function(){
+		//鼠标移入，关闭自动播放
+		$('.slide-btn').show();
+		clearInterval(timeId);
+	}, function(){ //鼠标移出，开启自动播放
+		$('.slide-btn').hide();
+		timeId = setInterval(function(){
+			play();
+		}, 1500);
+	})
+
+	$('#slide-con a').eq(0).css('opacity',1);
+	// for(var i = 0; i < allLinks.length; i++){
+	// 	console.log(zNum - i);
+	// 	allLinks.eq(i).css('zIndex', zNum - i);
+	// }
+	allLinks.each(function(i,el){
+		console.log(el);
+		$(el).css('zIndex',zNum - i);
+	});
+
+	// 分页小导航点击事件
+	$('#slide-nav a').click(function(){
+		 //样式操作
+		  $(this).siblings().removeClass('slide-active');
+			$(this).addClass('slide-active');
+      //获取当前点击按钮 索引
+			var i = $('#slide-nav a').index($(this));
+			//当前显示的图片 消失
+			$('#slide-con a').eq(now).animate({
+				opacity: 0
+			}, 500);
+			// 与点击按钮索引 对应的 图片 显示
+			$('#slide-con a').eq(i).animate({
+				opacity:1
+			}, 500);
+			now = i;  //把全局索引 设置成点击按钮的索引
+	});
+
+	$('.next-btn').click(function(){
+		play();
+	});
+
+
+
+	$('.prev-btn').click(function(){
+    //当前页消失
+		$('#slide-con a').eq(now).animate({
+			opacity:0
+		}, 500);
+		now--; //减1
+		if(now <= -1){now = 3;}
+    setPager(now);
+		//上一页出现
+		$('#slide-con a').eq(now).animate({
+			opacity:1
+		}, 500);
+	});
+
+
+  function play(){
+		//当前页 消失
+		$('#slide-con a').eq(now).animate({
+			opacity: 0
+		}, 500);
+		now++; //页码加1
+
+		//当到最后一页的时候,归零
+		if(now >= 4){now = 0;}
+    setPager(now);
+		//下一页 出现
+		$('#slide-con a').eq(now).animate({
+			opacity:1
+		}, 500);
+	}
+
+
+  function setPager(now){
+		// 清除所有激活class
+	  $('.slide-ico').removeClass('slide-active');
+		//下一个页面导航 添加 激活的class
+		$('.slide-ico').eq(now).addClass('slide-active');
+	}
+
+
+
+
+
+
+});
+
+
+</script>
+</body>
+</html>

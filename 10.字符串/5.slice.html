@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>字符串</title>
+	<style>
+    .title{color:red;}
+	</style>
+</head>
+<body>
+
+<script>
+	window.onload = function(){
+		var str="李白赠汪伦李白乘舟";
+		var str2 = str.slice(2,5);
+		console.log(str2);
+
+		var str3 = 'aaaxxhellokittyIam Jerry';
+		var index = str3.indexOf('I');
+		console.log('I的位置为'+ index);
+		var str4 = str3.slice(index);
+		console.log(str4);
+		//slice和subString的区别
+		var str5 = str.slice(-1);
+		console.log(str5);
+		var str6 = str.substring(-1);
+		console.log(str6);
+	}
+</script>
+</body>
+</html>

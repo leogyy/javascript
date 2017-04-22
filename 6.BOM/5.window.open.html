@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>open</title>
+	<style>
+		/*#box{width:400px;height:400px;
+			background-color:red;
+			margin-top:50px;
+		}*/
+	</style>
+</head>
+<body>
+	<button id="open-btn">打开窗口</button>
+
+
+<script>
+
+	window.onload = function(){
+		var openBtn = document.getElementById('open-btn');
+		openBtn.onclick = function(){
+			window.open(
+				'http://www.baidu.com',
+				'newwindow1',
+				'width = 500,height=500,left = 300, top=200'
+			);
+
+		
+		}
+
+	}
+</script>
+</body>
+</html>

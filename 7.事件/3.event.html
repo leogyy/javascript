@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>事件</title>
+	<style>
+	#box{
+		width:100px;
+		height:100px;
+		background-color: red;
+		position:absolute;
+	}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+	window.onload = function(){
+		var boxEl = document.getElementById('box');
+
+
+
+
+    // boxEl.addEventListener('click', function(event){
+		// 	console.log(event);
+		// 	console.log("您使用了: "+ event.type + '事件' + event.target.tagName);
+		// 	console.log("您点击的clientX: " + event.clientX);
+		// 	console.log("您点击的clientY: " + event.clientY);
+		// 	console.log("您点击的pageX: " + event.pageX);
+		// 	console.log("您点击的pageY: " + event.pageY);
+		//
+		// }, false);
+    //鼠标移动
+		document.onmousemove = function(event){
+
+			boxEl.style.left = event.clientX + 'px';
+			boxEl.style.top = event.clientY + 'px';
+
+		}
+
+
+	}
+</script>
+</body>
+</html>

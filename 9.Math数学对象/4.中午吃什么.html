@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>中午吃什么</title>
+	<style>
+	.container{
+		width:400px;
+		margin:0 auto;
+
+	}
+	#content{
+		width:400px;
+		height:260px;
+		border:2px solid #0492ec;
+		border-radius:6px;
+		text-align: center;
+		line-height:260px;
+		font-size:50px;
+	}
+	#stop-btn,#start-btn{
+		display: block;
+		width:100px;
+		height:30px;
+		margin:30px auto;
+		background-color:#0492ec;
+		border:2px solid #3fabef;
+		border-radius:20px;
+		text-align: center;
+		line-height:30px;
+		color:#fff;
+	}
+	#stop-btn{
+		display: none;
+	}
+	i{
+		position:absolute;
+		display: block;
+		width:80px;
+		height:30px;
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div id="content"></div>
+	<span id="start-btn">开始</span>
+	<span id="stop-btn">停止</span>
+</div>
+<script>
+	window.onload = function(){
+		var startBtn = document.getElementById('start-btn');
+		var stopBtn = document.getElementById('stop-btn');
+		var content = document.getElementById('content');
+		var foodArr = ['炒饭', '火锅','刀削面','水饺', '烧烤','麻辣烫'];
+    var length = foodArr.length;
+		var timeId = null;
+    var cWidth = document.documentElement.clientWidth;
+		var cHeight = document.documentElement.clientHeight;
+		// 创建10个隐藏的i标签，并且添加内容
+		// 随机位置
+		for(var i = 0; i < 10; i++){
+ 		 var el = document.createElement('i');
+ 		 var index = getRandom(0, length - 1);
+ 		 var food = foodArr[index];
+ 		 el.style.left = getRandom(0, cWidth - 80) + 'px';
+ 		 el.style.top = getRandom(0, cHeight - 30) + 'px';
+ 		 el.style.display = 'none';
+ 		 el.innerHTML = food;
+ 		 document.body.appendChild(el);
+ 	 }
+
+
+    //开始按钮事件
+		startBtn.onclick = function(e){
+			this.style.display = 'none';
+			stopBtn.style.display = 'block';
+			// 获取介于0和数组索引之间的一个随机数
+
+			timeId = setInterval(function(){
+				var index = getRandom(0, length - 1);
+				var food = foodArr[index];
+				content.innerHTML = food;
+				var iEl = document.getElementsByTagName('i');
+				for(var i = 0 ; i < 10; i++){
+					iEl[i].style.display = 'block';
+					iEl[i].style.left = getRandom(0, cWidth - 80) + 'px';
+					iEl[i].style.top = getRandom(0, cHeight - 30) + 'px';
+				}
+			}, 100);
+		}
+
+		// 停止按钮事件
+		stopBtn.onclick = function(){
+			this.style.display = 'none';
+			startBtn.style.display = 'block';
+			var iEl = document.getElementsByTagName('i');
+			for(var i = 0 ; i < 10; i++){
+				iEl[i].style.display = 'none';		
+			}
+			clearInterval(timeId);
+		}
+
+
+		// 随机整数函数
+	  function getRandom(n, m){
+			var num = Math.floor(Math.random()*(m - n + 1) + n );
+			return num;
+		}
+
+
+	}
+</script>
+</body>
+</html>

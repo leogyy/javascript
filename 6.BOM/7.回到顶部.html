@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>回到顶部</title>
+	<style>
+		.content{width:100%;height:5000px;border-bottom:10px solid red;}
+		#box{
+			display: none;
+			width:200px;
+			height:200px;
+			background-color: red;
+			position:fixed;
+			right:10px;
+			bottom:200px;
+
+		}
+		#box{color:#fff;}
+		#top{border-top:10px solid red;}
+		#center{font-size:60px;color:#fff;width:100%;height:1000px;background-color: orange;}
+		#bottom{font-size:60px;color:#fff;width:100%;height:1000px;background-color: blue;}
+    #go-top{
+			display: none;
+			position:fixed;
+			right:10px;
+			bottom:10px;
+			width:100px;
+			height:100px;
+			background-color: red;
+			color:#fff;
+		}
+		.top{
+			width:100%;
+			height:800px;
+			background-color: #f85fe1;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+<h1 class="top">顶部</h1>
+<div id="center">中间</div>
+<div id="bottom">底部</div>
+<div id="go-top">返回顶部</div>
+<script>
+	window.onload = function(){
+	 var goTop = document.getElementById('go-top');
+	 var timeId = null;
+   var status = true;
+	 //返回顶部按钮点击事件
+	 goTop.onclick = function(){
+		 //开启定时器
+		timeId = setInterval(function(){
+			// 1.获取当前的滚动高度
+			var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      // 2.变速运动 每次的scrollTop / 8
+			var speed = Math.floor(-scrollTop / 8);
+      console.log(scrollTop)
+      if(scrollTop == 0){
+				clearInterval(timeId);
+			}
+
+			//当前值 + speed 赋值给 滚动条
+			// chrome
+
+			status = true;
+			document.body.scrollTop = (scrollTop + speed);
+			//ie
+			document.documentElement.scrollTop = (scrollTop + speed);
+      console.log(scrollTop);
+		}, 30);
+
+	 }
+
+  //滚动条滚动事件
+ 	 window.onscroll = function(){
+
+ 		 var top = document.body.scrollTop ||document.documentElement.scrollTop;
+ 		 // 当滚动条滚动到200以后
+ 		 if(top >= 200){
+ 			 goTop.style.display = 'block';
+ 		 }else{
+ 			 goTop.style.display = 'none';
+ 		 }
+
+		 if(status == false){
+			 clearInterval(timeId);
+		 }
+     status = false;
+
+   }
+
+	}
+</script>
+</body>
+</html>

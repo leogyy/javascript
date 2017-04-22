@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>随机颜色</title>
+	<style>
+	#box{
+		width:100px;
+		height:100px;
+		background-color: red;
+	}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+	window.onload = function(){
+     var boxEl = document.getElementById('box');
+		 var colorArr = [
+			 '#01b448',
+	    '#01a5b4','#a501b4',
+			'#641000', '#46657b'];
+		 var colorLength = colorArr.length;
+		 var num = getRandom(0, colorLength-1);
+
+		 boxEl.style.backgroundColor = colorArr[num];
+
+		// 随机整数函数
+	  function getRandom(n, m){
+			var num = Math.floor(Math.random()*(m - n + 1) + n );
+			return num;
+		}
+
+
+
+
+
+	}
+</script>
+</body>
+</html>

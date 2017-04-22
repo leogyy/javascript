@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>字符串</title>
+	<style>
+    .title{color:red;}
+	</style>
+</head>
+<body>
+<h1 id="name"></h1>
+<h2 id="title"></h2>
+<script>
+	window.onload = function(){
+		var nameEl = document.getElementById('name');
+		var titleEl = document.getElementById('title');
+    //json对象
+		var data = {
+			name: '李白',
+			title:'诗人'
+		}
+		console.log(data.name);
+   //json字符串
+	 var foo = '{"name":"李白","title":"刺客"}';
+   var data2 = JSON.parse(foo);
+	 console.log(typeof(data2));
+   nameEl.innerHTML = data2.name;
+	 titleEl.innerHTML = data2.title;
+
+
+
+
+	}
+</script>
+</body>
+</html>

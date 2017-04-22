@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>事件</title>
+	<style>
+	#box{
+		width:100px;
+		height:100px;
+		background-color: red;
+	}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+	window.onload = function(){
+		var boxEl = document.getElementById('box');
+
+
+		box.onclick = function(){
+			alert('hello kitty');
+			// 解绑
+			// box.onclick = null;
+		}
+
+		box.onclick = function(){
+			alert('李白');
+		}
+
+
+	}
+</script>
+</body>
+</html>

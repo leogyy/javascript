@@ -1,0 +1,31 @@
+1. 查找 is
+
+This is 2017
+
+Display  is  a css attribute
+
+I am Leo
+
+I am a teacher
+
+2. 查找日期
+开头
+4位数字 / 两位数字 / 两位数字
+结尾
+2017/03/31
+1998/12/01
+2013-06-15
+a122/11/91
+23234/11/23/1767
+3021
+
+3. 查找http .jpg
+http://img.baidu.com/images/abc.jpg
+
+https://test.qq.com/images/fdaf.png
+
+http://test.qq.com/images/sfsaf.jpg
+
+http://test.qq.com/images/xxxxx.png
+
+http://wewr.qq.com/images/sfafs.jpg

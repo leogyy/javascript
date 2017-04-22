@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<title>cookie版换肤</title>
+	<link rel="stylesheet" href="css/normal.css"id="changeStyle">
+</head>
+<body>
+	<button id="normalBtn">默认样式</button>
+	<button id="orangeBtn">橙色系</button>
+	<button id="clearBtn">清除记录</button>
+
+	<div class="box"></div>
+	<span class="btn">按钮</span>
+<script>
+	window.onload = function(){
+   var changeStyle = document.getElementById('changeStyle');
+	 var normalBtn = document.getElementById('normalBtn');
+	 var orangeBtn = document.getElementById('orangeBtn');
+   var clearBtn = document.getElementById('clearBtn');
+   var skin = getCookie('skin');
+	 if(skin != ''){
+		 changeStyle.setAttribute('href','css/' + skin + '.css');
+	 }
+
+	 orangeBtn.onclick = function(){
+		 setCookie('skin','orange',10);
+		 changeStyle.setAttribute('href','css/orange.css');
+
+	 }
+
+	 clearBtn.onclick = function(){
+		 removeCookie('skin');
+	 }
+
+	 normalBtn.onclick = function(){
+      setCookie('skin','normal',10);
+		 	changeStyle.setAttribute('href','css/normal.css');
+	 }
+
+
+	 // 取cookie
+	 function getCookie(name){
+		var arr = document.cookie.split('; ');
+		for(var i = 0; i <arr.length; i++){
+			var arr2 = arr[i].split('=');
+			if(arr2[0] == name){
+				return arr2[1];
+			}
+		}
+
+		return '';
+	}
+
+	//  设置cookie
+   function setCookie(name,value, time){
+		 var date = new Date();
+		 date.setDate(date.getDate()+time);
+		 date.toGMTString();//转成时间字符串
+		 document.cookie = name + '=' + value+';expires='+date;
+	 }
+
+	 function removeCookie(name){
+		//  设置某条cookie过期时间为昨天
+		setCookie(name,'1', -1);
+	 }
+
+	}
+</script>
+</body>
+</html>
